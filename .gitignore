@@ -1,0 +1,8 @@
+# Dev files
+babel/
+node_modules/
+npm-debug.log
+**/*.js.map
+
+# OSX files
+.DS_Store

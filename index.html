@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Wheel of AutoTech</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .node {
+      font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+      fill: #bbb;
+    }
+
+    .node:hover {
+      fill: #000;
+    }
+
+    .link {
+      stroke: steelblue;
+      stroke-opacity: .4;
+      fill: none;
+      pointer-events: none;
+    }
+
+    .node:hover,
+    .node--source,
+    .node--target {
+      font-weight: 700;
+    }
+
+    .node--source {
+      fill: #2ca02c;
+    }
+
+    .node--target {
+      fill: #d62728;
+    }
+
+    .link--source,
+    .link--target {
+      stroke-opacity: 1;
+      stroke-width: 1px;
+    }
+
+    .link--source {
+      stroke: #d62728;
+    }
+
+    .link--target {
+      stroke: #2ca02c;
+    }
+
+    .link--faded {
+      stroke: rgba(200,200,200, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <script type="text/javascript" src="public/vendor.js"></script>
+  <script type="text/javascript" src="public/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "name": "autotech",
+  "version": "0.0.1",
+  "description": "The wheel of auto-tech",
+  "main": "index.js",
+  "scripts": {
+    "build": "grunt build",
+    "watch": "grunt watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/honeypotio/autotech.git"
+  },
+  "author": "Honeypotio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/honeypotio/autotech/issues"
+  },
+  "homepage": "https://github.com/honeypotio/autotech#readme",
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-preset-es2015": "^6.22.0",
+    "grunt": "^1.0.1",
+    "grunt-babel": "^6.0.0",
+    "grunt-browserify": "^5.0.0",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "dependencies": {
+    "d3": "^3.5.17"
+  }
+}
