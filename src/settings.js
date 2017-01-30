@@ -20,4 +20,4 @@ export const svg = d3.select("body").append("svg")
                     .attr("width", window.innerWidth)
                     .attr("height", diameter)
                     .append("g")
-                    .attr("transform", "translate(" + (radius + 200) + "," + radius + ")");
+                    .attr("transform", "translate(" + (window.innerWidth / 2) + "," + radius + ")");

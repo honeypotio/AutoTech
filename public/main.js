@@ -23,8 +23,10 @@ var SVGLinks = _settings.svg.append("g").selectAll(".link"),
     d.target = d[d.length - 1];
   }).attr("class", "link").attr("d", _settings.line);
 
-  SVGNodes = SVGNodes.data(nodes).enter().append("text").attr("class", "node").attr("dy", ".31em").attr("transform", function (d) {
-    return 'rotate(' + (d.x - 90) + ')translate(' + (d.y + 20) + ',0)' + (d.x < 180 ? "" : "rotate(180)");
+  SVGNodes = SVGNodes.data(nodes).enter().append("text").attr("class", "node").classed("node--root", function (node) {
+    return node.parent && node.parent.name === '';
+  }).attr("dy", ".31em").attr("transform", function (d) {
+    return 'rotate(' + (d.x - 90) + ')translate(' + (d.y + 2) + ',0)' + (d.x < 180 ? "" : "rotate(180)");
   }).style("text-anchor", function (d) {
     return d.x < 180 ? "start" : "end";
   }).text(function (d) {
@@ -35,7 +37,7 @@ var SVGLinks = _settings.svg.append("g").selectAll(".link"),
 function mouseovered(d) {
   SVGNodes.each(function (n) {
     n.target = n.source = false;
-  });
+  }).classed("node--root", false);
 
   SVGLinks.classed("link--target", function (l) {
     if (l.target === d) return l.source.source = true;
@@ -59,7 +61,9 @@ function mouseovered(d) {
 function mouseouted(d) {
   SVGLinks.classed("link--target", false).classed("link--source", false).classed("link--faded", false);
 
-  SVGNodes.classed("node--target", false).classed("node--source", false);
+  SVGNodes.classed("node--target", false).classed("node--source", false).classed("node--root", function (node) {
+    return node.parent && node.parent.name === '';
+  });
 }
 
 (0, _d.select)(self.frameElement).style("height", _settings.diameter + 'px');
@@ -76,6 +80,7 @@ function packageHierarchy(companies) {
 
   companies.forEach(function (company) {
     var isRootNode = true;
+
     parentKeys.forEach(function (key) {
       if (company[key]) {
         isRootNode = false;
@@ -85,20 +90,21 @@ function packageHierarchy(companies) {
       }
     });
     // Partnerships are weird
-    // if (company["partneredWith"]) {
+    if (company["partneredWith"]) {
 
-    //   company["partneredWith"].forEach(partner => {
-    //     if (!(map[company.name].children && map[company.name].children.includes(map[partner]))) {
-    //       isRootNode = false;
-    //       map[company.name].parent = map[partner];
-    //       map[company.name].parent.children = map[company.name].parent.children || [];
-    //       map[company.name].parent.children.push(map[company.name]);
-    //     }
-    //   });
-    // }
+      // company["partneredWith"].forEach(partner => {
+      //   if (!(map[company.name].children && map[company.name].children.includes(map[partner]))) {
+      //     isRootNode = false;
+      //     map[company.name].parent = map[partner];
+      //     map[company.name].parent.children = map[company.name].parent.children || [];
+      //     map[company.name].parent.children.push(map[company.name]);
+      //   }
+      // });
+    }
 
     if (isRootNode) {
       map[""].children.push(map[company.name]);
+      map[company.name].parent = map[""];
     }
   });
 
@@ -162,7 +168,7 @@ var line = exports.line = d3.svg.line.radial().interpolate("bundle").tension(.85
                       return d.x / 180 * Math.PI;
 });
 
-var svg = exports.svg = d3.select("body").append("svg").attr("width", window.innerWidth).attr("height", diameter).append("g").attr("transform", "translate(" + (radius + 200) + "," + radius + ")");
+var svg = exports.svg = d3.select("body").append("svg").attr("width", window.innerWidth).attr("height", diameter).append("g").attr("transform", "translate(" + window.innerWidth / 2 + "," + radius + ")");
 
 
 },{"d3":"d3"}]},{},[1]);
