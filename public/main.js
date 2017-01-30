@@ -5,40 +5,39 @@ var _d = require('d3');
 
 var _settings = require('./settings');
 
-var link = _settings.svg.append("g").selectAll(".link"),
-    node = _settings.svg.append("g").selectAll(".node");
+var SVGLinks = _settings.svg.append("g").selectAll(".link"),
+    SVGNodes = _settings.svg.append("g").selectAll(".node");
 
-(0, _d.json)("data/test.json", function (error, classes) {
+(0, _d.json)("data/prelim.json", function (error, companies) {
 
   if (error) {
     throw error;
   };
 
-  var hier = packageHierarchy(classes);
+  var hier = packageHierarchy(companies);
   var nodes = _settings.cluster.nodes(hier);
-  var links = packageImports(nodes);
+  var links = packageImports(nodes, companies);
 
-  link = link.data((0, _settings.bundle)(links)).enter().append("path").each(function (d) {
-    d.source = d[0], d.target = d[d.length - 1];
+  SVGLinks = SVGLinks.data((0, _settings.bundle)(links)).enter().append("path").each(function (d) {
+    d.source = d[0];
+    d.target = d[d.length - 1];
   }).attr("class", "link").attr("d", _settings.line);
 
-  node = node.data(nodes.filter(function (n) {
-    return !n.children;
-  })).enter().append("text").attr("class", "node").attr("dy", ".31em").attr("transform", function (d) {
-    return 'rotate(' + (d.x - 90) + ')translate(' + (d.y + 8) + ',0)' + (d.x < 180 ? "" : "rotate(180)");
+  SVGNodes = SVGNodes.data(nodes).enter().append("text").attr("class", "node").attr("dy", ".31em").attr("transform", function (d) {
+    return 'rotate(' + (d.x - 90) + ')translate(' + (d.y + 20) + ',0)' + (d.x < 180 ? "" : "rotate(180)");
   }).style("text-anchor", function (d) {
     return d.x < 180 ? "start" : "end";
   }).text(function (d) {
-    return d.key;
+    return d.name;
   }).on("mouseover", mouseovered).on("mouseout", mouseouted);
 });
 
 function mouseovered(d) {
-  node.each(function (n) {
+  SVGNodes.each(function (n) {
     n.target = n.source = false;
   });
 
-  link.classed("link--target", function (l) {
+  SVGLinks.classed("link--target", function (l) {
     if (l.target === d) return l.source.source = true;
   }).classed("link--source", function (l) {
     if (l.source === d) return l.target.target = true;
@@ -50,7 +49,7 @@ function mouseovered(d) {
     this.parentNode.appendChild(this);
   });
 
-  node.classed("node--target", function (n) {
+  SVGNodes.classed("node--target", function (n) {
     return n.target;
   }).classed("node--source", function (n) {
     return n.source;
@@ -58,42 +57,58 @@ function mouseovered(d) {
 }
 
 function mouseouted(d) {
-  link.classed("link--target", false).classed("link--source", false).classed("link--faded", false);
+  SVGLinks.classed("link--target", false).classed("link--source", false).classed("link--faded", false);
 
-  node.classed("node--target", false).classed("node--source", false);
+  SVGNodes.classed("node--target", false).classed("node--source", false);
 }
 
 (0, _d.select)(self.frameElement).style("height", _settings.diameter + 'px');
 
 // Lazily construct the package hierarchy from class names.
-function packageHierarchy(classes) {
-  var map = {};
+function packageHierarchy(companies) {
 
-  function find(name, data) {
-    var node = map[name],
-        i = void 0;
-    if (!node) {
-      node = map[name] = data || { name: name, children: [] };
-      if (name.length) {
-        node.parent = find(name.substring(0, i = name.lastIndexOf(".")));
-        node.parent.children.push(node);
-        node.key = name.substring(i + 1);
+  var parentKeys = ["mentoredBy", "foundedBy", "investedBy", "acquiredBy"];
+
+  var map = companies.reduce(function (acc, el) {
+    acc[el.name] = { name: el.name };
+    return acc;
+  }, { "": { name: "", children: [] } });
+
+  companies.forEach(function (company) {
+    var isRootNode = true;
+    parentKeys.forEach(function (key) {
+      if (company[key]) {
+        isRootNode = false;
+        map[company.name].parent = map[company[key][0]];
+        map[company.name].parent.children = map[company.name].parent.children || [];
+        map[company.name].parent.children.push(map[company.name]);
       }
-    }
-    return node;
-  }
+    });
+    // Partnerships are weird
+    // if (company["partneredWith"]) {
 
-  classes.forEach(function (d) {
-    find(d.name, d);
+    //   company["partneredWith"].forEach(partner => {
+    //     if (!(map[company.name].children && map[company.name].children.includes(map[partner]))) {
+    //       isRootNode = false;
+    //       map[company.name].parent = map[partner];
+    //       map[company.name].parent.children = map[company.name].parent.children || [];
+    //       map[company.name].parent.children.push(map[company.name]);
+    //     }
+    //   });
+    // }
+
+    if (isRootNode) {
+      map[""].children.push(map[company.name]);
+    }
   });
 
   return map[""];
 }
 
 // Return a list of imports for the given array of nodes.
-function packageImports(nodes) {
-  var map = {},
-      imports = [];
+function packageImports(nodes, companies) {
+  var map = {};
+  var links = [];
 
   // Compute a map from name to node.
   nodes.forEach(function (d) {
@@ -101,13 +116,19 @@ function packageImports(nodes) {
   });
 
   // For each import, construct a link from the source to target node.
-  nodes.forEach(function (d) {
-    if (d.imports) d.imports.forEach(function (i) {
-      imports.push({ source: map[d.name], target: map[i] });
+  var keys = ["mentoredBy", "foundedBy", "investedBy", "acquiredBy", "partneredWith"];
+
+  companies.forEach(function (company) {
+    keys.forEach(function (key) {
+      if (company[key]) {
+        company[key].forEach(function (rel) {
+          links.push({ source: map[company.name], target: map[rel] });
+        });
+      }
     });
   });
 
-  return imports;
+  return links;
 }
 
 
@@ -115,7 +136,7 @@ function packageImports(nodes) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-              value: true
+                      value: true
 });
 exports.svg = exports.line = exports.bundle = exports.cluster = exports.innerRadius = exports.radius = exports.diameter = undefined;
 
@@ -125,20 +146,20 @@ var d3 = _interopRequireWildcard(_d);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-var diameter = exports.diameter = window.innerWidth < window.innerHeight ? window.innerWidth : window.innerHeight;
+var diameter = exports.diameter = 720;
 var radius = exports.radius = diameter / 2;
 var innerRadius = exports.innerRadius = radius - 120;
 
 var cluster = exports.cluster = d3.layout.cluster().size([360, innerRadius]).value(function (d) {
-              return d.size;
+                      return d.size;
 });
 
 var bundle = exports.bundle = d3.layout.bundle();
 
-var line = exports.line = d3.svg.line.radial().interpolate("bundle").tension(0.2).radius(function (d) {
-              return d.y + 5;
+var line = exports.line = d3.svg.line.radial().interpolate("bundle").tension(.85).radius(function (d) {
+                      return d.y;
 }).angle(function (d) {
-              return d.x / 180 * Math.PI;
+                      return d.x / 180 * Math.PI;
 });
 
 var svg = exports.svg = d3.select("body").append("svg").attr("width", window.innerWidth).attr("height", diameter).append("g").attr("transform", "translate(" + (radius + 200) + "," + radius + ")");

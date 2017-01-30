@@ -8,11 +8,13 @@
     body {
       margin: 0;
       padding: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
     .node {
-      font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
-      fill: #bbb;
+      font-size: 11px;
+      font-weight: 300;
+      fill: #585858;
     }
 
     .node:hover {
@@ -30,6 +32,8 @@
     .node--source,
     .node--target {
       font-weight: 700;
+      font-size: 1.2em;
+      cursor: pointer;
     }
 
     .node--source {
@@ -57,10 +61,13 @@
     .link--faded {
       stroke: rgba(200,200,200, 0.4);
     }
+    .header__title {
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-
+  <h1 class="header__title">Wheel of Autotech</h1>
   <script type="text/javascript" src="public/vendor.js"></script>
   <script type="text/javascript" src="public/main.js"></script>
 </body>

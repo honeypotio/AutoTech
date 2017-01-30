@@ -1,0 +1,444 @@
+[
+  {
+    "name": "Volkswagen Group",
+    "founded": [
+      "VW Innovation Fund",
+      "Digital Lab",
+      "Data Lab",
+      "Mobility Lab",
+      "Volkswagen Electronic Research Lab",
+      "MOIA",
+      "CyMotive Technologies"
+    ],
+    "mentors": [
+      "Anacode",
+      "DocRAID",
+      "Edisonweb",
+      "Liftago",
+      "Re2You",
+      "Just Charge",
+      "Plugsurfing",
+      "gigaaa"
+    ],
+    "investedIn": [
+      "Gett",
+      "QuantumScape",
+      "Navistar"
+    ],
+    "acquired": [
+      "SEAT",
+      "ŠKODA",
+      "Bentley",
+      "Bugatti",
+      "Scania",
+      "MAN",
+      "Audi AG",
+      "Porsche"
+    ]
+  },
+  {
+    "name": "Anacode",
+    "mentoredBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "DocRAID",
+    "mentoredBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "Edisonweb",
+    "mentoredBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "Liftago",
+    "mentoredBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "Re2You",
+    "mentoredBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "Just Charge",
+    "mentoredBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "gigaaa",
+    "mentoredBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "VW Innovation Fund",
+    "foundedBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "Digital Lab",
+    "foundedBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "Data Lab",
+    "foundedBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "Mobility Lab",
+    "foundedBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "Volkswagen Electronic Research Lab",
+    "foundedBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "MOIA",
+    "foundedBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "CyMotive Technologies",
+    "foundedBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "Gett",
+    "investedBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "QuantumScape",
+    "investedBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "Navistar",
+    "investedBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "Porsche",
+    "acquiredBy": [
+      "Volkswagen Group"
+    ],
+    "acquired": [
+      "Mieschke Hofmann und Partner"
+    ],
+    "founded": [
+      "Porsche Consulting GmbH",
+      "Porsche Digital GmbH"
+    ],
+    "investedIn": [
+      "Bertrand AG",
+      "Inrix",
+      "Evopark"
+    ],
+    "partneredWith": [
+      "ACTIVATR",
+      "SpinLab"
+    ]
+  },
+  {
+    "name": "ACTIVATR",
+    "partneredWith": ["Porsche"]
+  },
+  {
+    "name": "SpinLab",
+    "partneredWith": ["Porsche"]
+  },
+  {
+    "name": "Mieschke Hofmann und Partner",
+    "acquiredBy": ["Porsche"]
+  },
+  {
+    "name": "Porsche Consulting GmbH",
+    "foundedBy": ["Porsche"]
+  },
+  {
+    "name": "Porsche Digital GmbH",
+    "foundedBy": ["Porsche"]
+  },
+  {
+    "name": "Bertrand AG",
+    "investedBy": ["Porsche"]
+  },
+  {
+    "name": "Inrix",
+    "investedBy": ["Porsche"]
+  },
+  {
+    "name": "Evopark",
+    "investedBy": ["Porsche"]
+  },
+  {
+    "name": "Audi AG",
+    "founded": [
+      "Audi at Home",
+      "Audi Piloted Driving",
+      "Audi Fit Driving",
+      "Audi Shared Fleet",
+      "Flying Health Incubator",
+      "SDS Company",
+      "Audi Electronic Venture GmbH",
+      "Audi Business Innovation GmbH"
+    ],
+    "investedIn": [
+      "HERE",
+      "Silvercar",
+      "TTTech Computertechnik AG"
+    ],
+    "acquiredBy": [
+      "Volkswagen Group"
+    ],
+    "acquired": [
+      "Lamborghini"
+    ]
+  },
+  {
+    "name": "Audi Business Innovation GmbH",
+    "foundedBy": ["Audi AG"]
+  },
+  {
+    "name": "Silvercar",
+    "investedBy": ["Audi AG"]
+  },
+  {
+    "name": "TTTech Computertechnik AG",
+    "investedBy": ["Audi AG"]
+  },
+  {
+    "name": "Audi at Home",
+    "foundedBy": ["Audi AG"]
+  },
+  {
+    "name": "Audi Piloted Driving",
+    "foundedBy": ["Audi AG"]
+  },
+  {
+    "name": "Audi Fit Driving",
+    "foundedBy": ["Audi AG"]
+  },
+  {
+    "name": "Audi Shared Fleet",
+    "foundedBy": ["Audi AG"]
+  },
+  {
+    "name": "Flying Health Incubator",
+    "foundedBy": ["Audi AG"]
+  },
+  {
+    "name": "SDS Company",
+    "foundedBy": ["Audi AG"]
+  },
+  {
+    "name": "Lamborghini",
+    "acquiredBy": [
+      "Audi AG"
+    ],
+    "acquired": [
+      "Ducati"
+    ]
+  },
+  {
+    "name": "Ducati",
+    "acquiredBy": [
+      "Lamborghini"
+    ]
+  },
+  {
+    "name": "Škoda",
+    "acquiredBy": [
+      "Volkswagen Group"
+    ]
+  },
+  {
+    "name": "Bentley",
+    "acquiredBy": [
+      "Volkswagen Group"
+    ]
+  },
+  {
+    "name": "Bugatti",
+    "acquiredBy": [
+      "Volkswagen Group"
+    ]
+  },
+  {
+    "name": "Scania",
+    "acquiredBy": [
+      "Volkswagen Group"
+    ],
+    "partneredWith": [
+      "MAN",
+      "Daimler",
+      "Ranotor"
+    ]
+  },
+  {
+    "name": "Ranotor",
+    "partneredWith": [
+      "Scania"
+    ]
+  },
+  {
+    "name": "MAN",
+    "acquiredBy": [
+      "Volkswagen Group"
+    ],
+    "partneredWith": [
+      "Scania",
+      "Daimler"
+    ],
+    "investedIn": [
+      "FR8 Revolution Inc."
+    ],
+    "founded": [
+      "RIO"
+    ]
+  },
+  {
+    "name": "RIO",
+    "foundedBy": [
+      "MAN"
+    ]
+  },
+  {
+    "name": "FR8 Revolution Inc.",
+    "investedBy": [
+      "MAN"
+    ]
+  },
+  {
+    "name": "Audi Electronic Venture GmbH",
+    "foundedBy": [
+      "Audi AG"
+    ],
+    "investedIn": [
+      "NIRA Dynamics AB",
+      "Quartett mobile GmbH",
+      "Cubic Telecom Limited"
+    ],
+    "founded": [
+      "e.Solutions GmbH",
+      "Automotive Safety Technologies GmbH",
+      "Elektronische Fahrwerksysteme GmbH",
+      "TKI Automotive GmbH"
+    ],
+    "partneredWith": [
+      "Elektrobit Automotive GmbH"
+    ]
+  },
+  {
+    "name": "NIRA Dynamics AB",
+    "investedBy": [
+      "Audi Electronic Venture GmbH"
+    ]
+  },
+  {
+    "name": "Quartett mobile GmbH",
+    "investedBy": [
+      "Audi Electronic Venture GmbH"
+    ]
+  },
+  {
+    "name": "Cubic Telecom Limited",
+    "investedBy": [
+      "Audi Electronic Venture GmbH"
+    ]
+  },
+  {
+    "name": "e.Solutions GmbH",
+    "foundedBy": [
+      "Audi Electronic Venture GmbH"
+    ]
+  },
+  {
+    "name": "Automotive Safety Technologies GmbH",
+    "foundedBy": [
+      "Audi Electronic Venture GmbH"
+    ]
+  },
+  {
+    "name": "Elektronische Fahrwerksysteme GmbH",
+    "foundedBy": [
+      "Audi Electronic Venture GmbH"
+    ]
+  },
+  {
+    "name": "TKI Automotive GmbH",
+    "foundedBy": [
+      "Audi Electronic Venture GmbH"
+    ]
+  },
+  {
+    "name": "Elektrobit Automotive GmbH",
+    "partneredWith": [
+      "Audi Electronic Venture GmbH"
+    ]
+  },
+  {
+    "name": "HERE",
+    "investedBy": [
+      "Audi AG",
+      "Daimler",
+      "Intel",
+      "BMW"
+    ]
+  },
+  {
+    "name": "Daimler",
+    "investedIn": [
+      "HERE"
+    ]
+  },
+  {
+    "name": "BMW",
+    "investedIn": [
+      "HERE"
+    ]
+  },
+  {
+    "name": "Intel",
+    "investedIn": [
+      "HERE"
+    ]
+  },
+  {
+    "name": "SEAT",
+    "acquiredBy": ["Volkswagen Group"],
+    "partneredWith": [
+      "Conector"
+    ]
+  },
+  {
+    "name": "Conector",
+    "partneredWith": [
+      "SEAT"
+    ],
+    "mentors": [
+      "GOI travel",
+      "Innroute",
+      "Open Car",
+      "Pulp Car",
+      "Valeet"
+    ]
+  },
+  {
+    "name": "GOI travel",
+    "mentoredBy": [
+      "Conector"
+    ]
+  },
+  {
+    "name": "Innroute",
+    "mentoredBy": [
+      "Conector"
+    ]
+  },
+  {
+    "name": "Open Car",
+    "mentoredBy": [
+      "Conector"
+    ]
+  },
+  {
+    "name": "Pulp Car",
+    "mentoredBy": [
+      "Conector"
+    ]
+  },
+  {
+    "name": "Valeet",
+    "mentoredBy": [
+      "Conector"
+    ]
+  }
+]
