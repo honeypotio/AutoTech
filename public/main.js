@@ -39,8 +39,10 @@ function mouseovered(d) {
 
   SVGLinks.classed("link--target", function (l) {
     if (l.target === d) return l.source.source = true;
-  }).classed("link--source", function (l) {
-    if (l.source === d) return l.target.target = true;
+  }).classed("link--source", function (path) {
+    if (path.source === d) {
+      return path.target.target = true;
+    }
   }).classed("link--faded", function (l) {
     return l.target !== d && l.source !== d;
   }).filter(function (l) {
@@ -67,7 +69,7 @@ function mouseouted(d) {
 // Lazily construct the package hierarchy from class names.
 function packageHierarchy(companies) {
   var map = companies.reduce(function (acc, el) {
-    acc[""].children.push({ name: el.name });
+    acc[""].children.push({ name: el.name, parent: acc[""] });
     return acc;
   }, { "": { name: "", children: [] } });
 
@@ -84,7 +86,7 @@ function packageImports(nodes, companies) {
     map[d.name] = d;
   });
 
-  // For each import, construct a link from the source to target node.
+  // use one directional keys to avoid double linking btn two endpoints
   var keys = ["mentoredBy", "foundedBy", "investedBy", "acquiredBy", "partneredWith"];
 
   companies.forEach(function (company) {

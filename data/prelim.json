@@ -1,40 +1,10 @@
 [
   {
     "name": "Volkswagen Group",
-    "founded": [
-      "VW Innovation Fund",
-      "Digital Lab",
-      "Data Lab",
-      "Mobility Lab",
-      "Volkswagen Electronic Research Lab",
-      "MOIA",
-      "CyMotive Technologies"
-    ],
-    "mentors": [
-      "Anacode",
-      "DocRAID",
-      "Edisonweb",
-      "Liftago",
-      "Re2You",
-      "Just Charge",
-      "Plugsurfing",
-      "gigaaa"
-    ],
-    "investedIn": [
-      "Gett",
-      "QuantumScape",
-      "Navistar"
-    ],
-    "acquired": [
-      "SEAT",
-      "ŠKODA",
-      "Bentley",
-      "Bugatti",
-      "Scania",
-      "MAN",
-      "Audi AG",
-      "Porsche"
-    ]
+    "founded": ["VW Innovation Fund", "Digital Lab", "Data Lab", "Mobility Lab", "Volkswagen Electronic Research Lab", "MOIA", "CyMotive Technologies"],
+    "mentors": ["Anacode", "DocRAID", "Edisonweb", "Liftago", "Re2You", "Just Charge", "Plugsurfing", "gigaaa"],
+    "investedIn": ["Gett", "QuantumScape", "Navistar"],
+    "acquired": ["SEAT", "ŠKODA", "Bentley", "Bugatti", "Scania", "MAN", "Audi AG", "Porsche"]
   },
   {
     "name": "Anacode",
@@ -105,30 +75,82 @@
     "investedBy": ["Volkswagen Group"]
   },
   {
+    "name": "Škoda",
+    "acquiredBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "Bentley",
+    "acquiredBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "Bugatti",
+    "acquiredBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "Scania",
+    "acquiredBy": ["Volkswagen Group"],
+    "partneredWith": ["MAN", "Daimler", "Ranotor"]
+  },
+  {
+    "name": "Ranotor",
+    "partneredWith": ["Scania"]
+  },
+  {
+    "name": "MAN",
+    "acquiredBy": ["Volkswagen Group"],
+    "partneredWith": ["Scania", "Daimler"],
+    "investedIn": ["FR8 Revolution Inc."],
+    "founded": ["RIO"]
+  },
+  {
+    "name": "RIO",
+    "foundedBy": ["MAN"]
+  },
+  {
+    "name": "FR8 Revolution Inc.",
+    "investedBy": ["MAN"]
+  },
+  {
+    "name": "SEAT",
+    "acquiredBy": ["Volkswagen Group"],
+    "partneredWith": ["Conector"]
+  },
+  {
+    "name": "Conector",
+    "partneredWith": ["SEAT"],
+    "mentors": ["GOI travel", "Innroute", "Open Car", "Pulp Car", "Valeet"]
+  },
+  {
+    "name": "GOI travel",
+    "mentoredBy": ["Conector"]
+  },
+  {
+    "name": "Innroute",
+    "mentoredBy": ["Conector"]
+  },
+  {
+    "name": "Open Car",
+    "mentoredBy": ["Conector"]
+  },
+  {
+    "name": "Pulp Car",
+    "mentoredBy": ["Conector"]
+  },
+  {
+    "name": "Valeet",
+    "mentoredBy": ["Conector"]
+  },
+  {
     "name": "Porsche",
-    "acquiredBy": [
-      "Volkswagen Group"
-    ],
-    "acquired": [
-      "Mieschke Hofmann und Partner"
-    ],
-    "founded": [
-      "Porsche Consulting GmbH",
-      "Porsche Digital GmbH"
-    ],
-    "investedIn": [
-      "Bertrand AG",
-      "Inrix",
-      "Evopark"
-    ],
-    "partneredWith": [
-      "ACTIVATR",
-      "SpinLab"
-    ]
+    "acquiredBy": ["Volkswagen Group"],
+    "acquired": ["Mieschke Hofmann und Partner"],
+    "founded": ["Porsche Consulting GmbH", "Porsche Digital GmbH"],
+    "investedIn": ["Bertrand AG", "Inrix", "Evopark"],
+    "partneredWith": ["ACTIVATR", "SpinLab"]
   },
   {
     "name": "ACTIVATR",
-    "partneredWith": ["Porsche"]
+    "partneredWith": ["Porsche", "Robert Bosch GmbH"]
   },
   {
     "name": "SpinLab",
@@ -160,27 +182,10 @@
   },
   {
     "name": "Audi AG",
-    "founded": [
-      "Audi at Home",
-      "Audi Piloted Driving",
-      "Audi Fit Driving",
-      "Audi Shared Fleet",
-      "Flying Health Incubator",
-      "SDS Company",
-      "Audi Electronic Venture GmbH",
-      "Audi Business Innovation GmbH"
-    ],
-    "investedIn": [
-      "HERE",
-      "Silvercar",
-      "TTTech Computertechnik AG"
-    ],
-    "acquiredBy": [
-      "Volkswagen Group"
-    ],
-    "acquired": [
-      "Lamborghini"
-    ]
+    "founded": ["Audi at Home", "Audi Piloted Driving", "Audi Fit Driving", "Audi Shared Fleet", "Flying Health Incubator", "SDS Company", "Audi Electronic Venture GmbH", "Audi Business Innovation GmbH"],
+    "investedIn": ["HERE", "Silvercar", "TTTech Computertechnik AG"],
+    "acquiredBy": ["Volkswagen Group"],
+    "acquired": ["Lamborghini"]
   },
   {
     "name": "Audi Business Innovation GmbH",
@@ -220,225 +225,374 @@
   },
   {
     "name": "Lamborghini",
-    "acquiredBy": [
-      "Audi AG"
-    ],
-    "acquired": [
-      "Ducati"
-    ]
+    "acquiredBy": ["Audi AG"],
+    "acquired": ["Ducati"]
   },
   {
     "name": "Ducati",
-    "acquiredBy": [
-      "Lamborghini"
-    ]
-  },
-  {
-    "name": "Škoda",
-    "acquiredBy": [
-      "Volkswagen Group"
-    ]
-  },
-  {
-    "name": "Bentley",
-    "acquiredBy": [
-      "Volkswagen Group"
-    ]
-  },
-  {
-    "name": "Bugatti",
-    "acquiredBy": [
-      "Volkswagen Group"
-    ]
-  },
-  {
-    "name": "Scania",
-    "acquiredBy": [
-      "Volkswagen Group"
-    ],
-    "partneredWith": [
-      "MAN",
-      "Daimler",
-      "Ranotor"
-    ]
-  },
-  {
-    "name": "Ranotor",
-    "partneredWith": [
-      "Scania"
-    ]
-  },
-  {
-    "name": "MAN",
-    "acquiredBy": [
-      "Volkswagen Group"
-    ],
-    "partneredWith": [
-      "Scania",
-      "Daimler"
-    ],
-    "investedIn": [
-      "FR8 Revolution Inc."
-    ],
-    "founded": [
-      "RIO"
-    ]
-  },
-  {
-    "name": "RIO",
-    "foundedBy": [
-      "MAN"
-    ]
-  },
-  {
-    "name": "FR8 Revolution Inc.",
-    "investedBy": [
-      "MAN"
-    ]
+    "acquiredBy": ["Lamborghini"]
   },
   {
     "name": "Audi Electronic Venture GmbH",
-    "foundedBy": [
-      "Audi AG"
-    ],
-    "investedIn": [
-      "NIRA Dynamics AB",
-      "Quartett mobile GmbH",
-      "Cubic Telecom Limited"
-    ],
-    "founded": [
-      "e.Solutions GmbH",
-      "Automotive Safety Technologies GmbH",
-      "Elektronische Fahrwerksysteme GmbH",
-      "TKI Automotive GmbH"
-    ],
-    "partneredWith": [
-      "Elektrobit Automotive GmbH"
-    ]
+    "foundedBy": ["Audi AG"],
+    "investedIn": ["NIRA Dynamics AB", "Quartett mobile GmbH", "Cubic Telecom Limited"],
+    "founded": ["e.Solutions GmbH", "Automotive Safety Technologies GmbH", "Elektronische Fahrwerksysteme GmbH", "TKI Automotive GmbH"],
+    "partneredWith": ["Elektrobit Automotive GmbH"]
   },
   {
     "name": "NIRA Dynamics AB",
-    "investedBy": [
-      "Audi Electronic Venture GmbH"
-    ]
+    "investedBy": ["Audi Electronic Venture GmbH"]
   },
   {
     "name": "Quartett mobile GmbH",
-    "investedBy": [
-      "Audi Electronic Venture GmbH"
-    ]
+    "investedBy": ["Audi Electronic Venture GmbH"]
   },
   {
     "name": "Cubic Telecom Limited",
-    "investedBy": [
-      "Audi Electronic Venture GmbH"
-    ]
+    "investedBy": ["Audi Electronic Venture GmbH"]
   },
   {
     "name": "e.Solutions GmbH",
-    "foundedBy": [
-      "Audi Electronic Venture GmbH"
-    ]
+    "foundedBy": ["Audi Electronic Venture GmbH"]
   },
   {
     "name": "Automotive Safety Technologies GmbH",
-    "foundedBy": [
-      "Audi Electronic Venture GmbH"
-    ]
+    "foundedBy": ["Audi Electronic Venture GmbH"]
   },
   {
     "name": "Elektronische Fahrwerksysteme GmbH",
-    "foundedBy": [
-      "Audi Electronic Venture GmbH"
-    ]
+    "foundedBy": ["Audi Electronic Venture GmbH"]
   },
   {
     "name": "TKI Automotive GmbH",
-    "foundedBy": [
-      "Audi Electronic Venture GmbH"
-    ]
+    "foundedBy": ["Audi Electronic Venture GmbH"]
   },
   {
     "name": "Elektrobit Automotive GmbH",
-    "partneredWith": [
-      "Audi Electronic Venture GmbH"
-    ]
+    "partneredWith": ["Audi Electronic Venture GmbH"]
   },
   {
     "name": "HERE",
-    "investedBy": [
-      "Audi AG",
-      "Daimler",
-      "Intel",
-      "BMW"
-    ]
+    "investedBy": ["Audi AG", "Daimler", "Intel", "BMW"]
   },
   {
     "name": "Daimler",
-    "investedIn": [
-      "HERE"
-    ]
+    "investedIn": ["HERE", "Blacklane", "BAIC Motor", "tiramizoo", "MATTERNET", "Starship Technologies", "Motor Coach Industries", "Li-Tec Battery", "ParkTag"],
+    "partneredWith": ["DAF Trucks", "Iveco", "MAN", "Scania", "Volvo", "Plug and Play China"],
+    "founded": ["Daimler Mobility Services GmbH", "Moovel", "Daimler TSS GmbH", "FleetBoard", "Deutsche ACCUmotive", "Innovation Lab", "Daimler Trucks North America", "Mercedes Pay", "Daimler Financial Services AG"],
+    "acquired": ["FlightCar"]
+  },
+  {
+    "name": "Daimler Financial Services AG",
+    "foundedBy": ["Daimler"],
+    "acquired": ["PayCash Europe SA"]
+  },
+  {
+    "name": "Mercedes Pay",
+    "foundedBy": ["Daimler"]
+  },
+  {
+    "name": "Daimler Trucks North America",
+    "foundedBy": ["Daimler"],
+    "investedIn": ["Zonar Systems"]
+  },
+  {
+    "name": "Zonar Systems",
+    "investedBy": ["Daimler Trucks North America"]
+  },
+  {
+    "name": "Innovation Lab",
+    "foundedBy": ["Daimler"]
+  },
+  {
+    "name": "Deutsche ACCUmotive",
+    "foundedBy": ["Daimler"]
+  },
+  {
+    "name": "FleetBoard",
+    "foundedBy": ["Daimler"]
+  },
+  {
+    "name": "Daimler TSS GmbH",
+    "foundedBy": ["Daimler"]
+  },
+  {
+    "name": "Moovel",
+    "foundedBy": ["Daimler"],
+    "acquired": ["myTaxi", "Car2Go", "Park2gether", "RideScout"]
+  },
+  {
+    "name": "Car2Go",
+    "acquiredBy": ["Moovel"]
+  },
+  {
+    "name": "Park2gether",
+    "acquiredBy": ["Moovel"]
+  },
+  {
+    "name": "RideScout",
+    "acquiredBy": ["Moovel"],
+    "acquired": ["GloveSherpa"]
+  },
+  {
+    "name": "myTaxi",
+    "acquiredBy": ["Moovel"],
+    "acquired": ["Hailo"]
+  },
+  {
+    "name": "FlightCar",
+    "acquiredBy": ["Daimler"]
+  },
+  {
+    "name": "Blacklane",
+    "investedBy": ["Daimler"]
+  },
+  {
+    "name": "BAIC Motor",
+    "investedBy": ["Daimler"]
+  },
+  {
+    "name": "tiramizoo",
+    "investedBy": ["Daimler"]
+  },
+  {
+    "name": "MATTERNET",
+    "investedBy": ["Daimler"]
+  },
+  {
+    "name": "Starship Technologies",
+    "investedBy": ["Daimler"]
+  },
+  {
+    "name": "Motor Coach Industries",
+    "investedBy": ["Daimler"]
+  },
+  {
+    "name": "Li-Tec Battery",
+    "investedBy": ["Daimler"]
+  },
+  {
+    "name": "ParkTag",
+    "investedBy": ["Daimler", "Robert Bosch GmbH"]
+  },
+  {
+    "name": "Plug and Play China",
+    "partneredWith": ["Daimler"]
+  },
+  {
+    "name": "Daimler Mobility Services GmbH",
+    "foundedBy": ["Daimler"]
+  },
+  {
+    "name": "Volvo",
+    "partneredWith": ["Daimler"]
+  },
+  {
+    "name": "DAF Trucks",
+    "partneredWith": ["Daimler"]
+  },
+  {
+    "name": "Iveco",
+    "partneredWith": ["Daimler"]
   },
   {
     "name": "BMW",
-    "investedIn": [
-      "HERE"
-    ]
+    "investedIn": ["HERE"],
+    "acquired": ["MINI"],
+    "founded": ["Startup Garage", "BMW i NEXT", "BMW i Ventures"],
+    "partneredWith": ["High Mobility", "Baidu", "Intel", "Mobileye"]
   },
   {
     "name": "Intel",
-    "investedIn": [
-      "HERE"
-    ]
+    "investedIn": ["HERE"],
+    "partneredWith": ["BMW"]
   },
   {
-    "name": "SEAT",
-    "acquiredBy": ["Volkswagen Group"],
-    "partneredWith": [
-      "Conector"
-    ]
+    "name": "BMW i NEXT",
+    "foundedBy": ["BMW"]
   },
   {
-    "name": "Conector",
-    "partneredWith": [
-      "SEAT"
-    ],
-    "mentors": [
-      "GOI travel",
-      "Innroute",
-      "Open Car",
-      "Pulp Car",
-      "Valeet"
-    ]
+    "name": "BMW i Ventures",
+    "foundedBy": ["BMW"],
+    "founded": ["DriveNow", "ChargeNow", "ReachNow", "ParkNow", "BMW i Ventures Incubator"],
+    "investedIn": ["MobileROI", "Moovit", "Chargepoint", "Chargemaster", "JustPark", "STRATIM", "MyCityWay", "Scoop", "Rever Moto", "Zendrive", "Life360", "Carbon3D"],
+    "partneredWith": ["RideCell"]
   },
   {
-    "name": "GOI travel",
-    "mentoredBy": [
-      "Conector"
-    ]
+    "name": "ChargeNow",
+    "foundedBy": ["BMW i Ventures"]
   },
   {
-    "name": "Innroute",
-    "mentoredBy": [
-      "Conector"
-    ]
+    "name": "ParkNow",
+    "foundedBy": ["BMW i Ventures"],
+    "acquired": ["Parkmobile USA"]
   },
   {
-    "name": "Open Car",
-    "mentoredBy": [
-      "Conector"
-    ]
+    "name": "Parkmobile USA",
+    "acquiredBy": ["ParkNow"]
   },
   {
-    "name": "Pulp Car",
-    "mentoredBy": [
-      "Conector"
-    ]
+    "name": "ReachNow",
+    "foundedBy": ["BMW i Ventures"],
+    "partneredWith": ["RideCell"]
   },
   {
-    "name": "Valeet",
-    "mentoredBy": [
-      "Conector"
-    ]
+    "name": "Carbon3D",
+    "investedBy": ["BMW i Ventures"]
+  },
+  {
+    "name": "Life360",
+    "investedBy": ["BMW i Ventures"]
+  },
+  {
+    "name": "Zendrive",
+    "investedBy": ["BMW i Ventures"]
+  },
+  {
+    "name": "Rever Moto",
+    "investedBy": ["BMW i Ventures"]
+  },
+  {
+    "name": "RideCell",
+    "partneredWith": ["BMW i Ventures", "ReachNow"]
+  },
+  {
+    "name": "Scoop",
+    "investedBy": ["BMW i Ventures"]
+  },
+  {
+    "name": "MyCityWay",
+    "investedBy": ["BMW i Ventures"]
+  },
+  {
+    "name": "STRATIM",
+    "investedBy": ["BMW i Ventures"]
+  },
+  {
+    "name": "JustPark",
+    "investedBy": ["BMW i Ventures"]
+  },
+  {
+    "name": "Chargemaster",
+    "investedBy": ["BMW i Ventures"]
+  },
+  {
+    "name": "MobileROI",
+    "investedBy": ["BMW i Ventures"]
+  },
+  {
+    "name": "Moovit",
+    "investedBy": ["BMW i Ventures"]
+  },
+  {
+    "name": "Chargepoint",
+    "investedBy": ["BMW i Ventures"]
+  },
+  {
+    "name": "High Mobility",
+    "partneredWith": ["BMW"]
+  },
+  {
+    "name": "Baidu",
+    "partneredWith": ["BMW"]
+  },
+  {
+    "name": "Mobileye",
+    "partneredWith": ["BMW", "Delphi"]
+  },
+  {
+    "name": "Delphi",
+    "partneredWith": ["Mobileye"]
+  },
+  {
+    "name": "Startup Garage",
+    "foundedBy": ["BMW"]
+  },
+  {
+    "name": "MINI",
+    "acquiredBy": ["BMW"],
+    "partneredWith": ["DriveNow"]
+  },
+  {
+    "name": "DriveNow",
+    "foundedBy": ["BMW i Ventures", "Sixt Ventures"],
+    "partneredWith": ["MINI"]
+  },
+  {
+    "name": "Sixt",
+    "founded": ["Sixt Ventures"]
+  },
+  {
+    "name": "Sixt Ventures",
+    "foundedBy": ["Sixt"],
+    "founded": ["DriveNow", "myDriver", "autohaus24"],
+    "investedIn": ["refindedAds"]
+  },
+  {
+    "name": "Robert Bosch GmbH",
+    "founded": ["Bosch Engineering GmbH", "Robert Bosch Start-up GmbH", "Robert Bosch Venture Capital GmbH"],
+    "investedIn": ["ParkTag"],
+    "partneredWith": ["ACTIVATR"],
+    "acquired": ["Seeo"]
+  },
+  {
+    "name": "Robert Bosch Venture Capital GmbH",
+    "foundedBy": ["Robert Bosch GmbH"],
+    "investedIn": ["CelLink", "AImotive", "Aethon", "Chronocam"]
+  },
+  {
+    "name": "CelLink",
+    "foundedBy": ["Robert Bosch Venture Capital GmbH"]
+  },
+  {
+    "name": "Chronocam",
+    "foundedBy": ["Robert Bosch Venture Capital GmbH"]
+  },
+  {
+    "name": "Aethon",
+    "foundedBy": ["Robert Bosch Venture Capital GmbH"]
+  },
+  {
+    "name": "AImotive",
+    "foundedBy": ["Robert Bosch Venture Capital GmbH"]
+  },
+  {
+    "name": "Robert Bosch Start-up GmbH",
+    "foundedBy": ["Robert Bosch GmbH"]
+  },
+  {
+    "name": "Bosch Engineering GmbH",
+    "foundedBy": ["Robert Bosch GmbH"]
+  },
+  {
+    "name": "Schaeffler AG",
+    "acquired": ["Continental AG"]
+  },
+  {
+    "name": "Continental AG",
+    "acquiredBy": ["Schaeffler AG"],
+    "founded": ["ContiTech", "Continental Automotive Systems"],
+    "acquired": ["Omitec Group", "Elektrobit Oyj Software", "Elektrobit Automotive GmbH"]
+  },
+  {
+    "name": "Continental Automotive Systems",
+    "acquiredBy": ["Continental AG"]
+  },
+  {
+    "name": "ContiTech",
+    "foundedBy": ["Continental AG"]
+  },
+  {
+    "name": "Omitec Group",
+    "acquiredBy": ["Continental AG"]
+  },
+  {
+    "name": "Elektrobit Oyj Software",
+    "acquiredBy": ["Continental AG"]
+  },
+  {
+    "name": "Elektrobit Automotive GmbH",
+    "acquiredBy": ["Continental AG"],
+    "partneredWith": ["Audi Electronic Venture GmbH"]
   }
 ]
