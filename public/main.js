@@ -23,9 +23,7 @@ var SVGLinks = _settings.svg.append("g").selectAll(".link"),
     d.target = d[d.length - 1];
   }).attr("class", "link").attr("d", _settings.line);
 
-  SVGNodes = SVGNodes.data(nodes.filter(function (node) {
-    return !node.children;
-  })).enter().append("text").attr("class", "node").attr("dy", ".31em").attr("transform", function (d) {
+  SVGNodes = SVGNodes.data(nodes).enter().append("text").attr("class", "node").attr("dy", ".31em").attr("transform", function (d) {
     return 'rotate(' + (d.x - 90) + ')translate(' + (d.y + 2) + ',0)' + (d.x < 180 ? "" : "rotate(180)");
   }).style("text-anchor", function (d) {
     return d.x < 180 ? "start" : "end";
@@ -68,18 +66,10 @@ function mouseouted(d) {
 
 // Lazily construct the package hierarchy from class names.
 function packageHierarchy(companies) {
-
-  var parentKeys = ["mentoredBy", "foundedBy", "investedBy", "acquiredBy"];
-
   var map = companies.reduce(function (acc, el) {
-    acc[el.name] = { name: el.name };
+    acc[""].children.push({ name: el.name });
     return acc;
   }, { "": { name: "", children: [] } });
-
-  companies.forEach(function (company) {
-    map[""].children.push(map[company.name]);
-    map[company.name].parent = map[""];
-  });
 
   return map[""];
 }

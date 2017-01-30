@@ -34,7 +34,7 @@ getJSON("data/prelim.json", function(error, companies) {
         .attr("class", "link")
         .attr("d", line);
 
-  SVGNodes = SVGNodes.data(nodes.filter(node => !node.children))
+  SVGNodes = SVGNodes.data(nodes)
           .enter().append("text")
           .attr("class", "node")
           .attr("dy", ".31em")
@@ -76,18 +76,10 @@ select(self.frameElement).style("height", `${diameter}px`);
 
 // Lazily construct the package hierarchy from class names.
 function packageHierarchy(companies) {
-
-  const parentKeys = ["mentoredBy", "foundedBy", "investedBy", "acquiredBy"];
-
   let map = companies.reduce((acc, el) => {
-    acc[el.name] = {name: el.name};
+    acc[""].children.push({name: el.name})
     return acc;
   }, { "": {name: "", children: []}});
-
-  companies.forEach(company => {
-    map[""].children.push(map[company.name]);
-    map[company.name].parent = map[""];
-  });
 
   return map[""];
 }
