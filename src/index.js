@@ -34,10 +34,9 @@ getJSON("data/prelim.json", function(error, companies) {
         .attr("class", "link")
         .attr("d", line);
 
-  SVGNodes = SVGNodes.data(nodes)
+  SVGNodes = SVGNodes.data(nodes.filter(node => !node.children))
           .enter().append("text")
           .attr("class", "node")
-          .classed("node--root", node => (node.parent && node.parent.name === ''))
           .attr("dy", ".31em")
           .attr("transform", function(d) {
             return `rotate(${ (d.x - 90) })translate(${ (d.y + 2) },0)${ d.x < 180 ? "" : "rotate(180)" }`;
@@ -53,7 +52,6 @@ getJSON("data/prelim.json", function(error, companies) {
 
 function mouseovered(d) {
   SVGNodes.each(function(n) { n.target = n.source = false; })
-          .classed("node--root", false);
 
   SVGLinks.classed("link--target", function(l) { if (l.target === d) return l.source.source = true; })
       .classed("link--source", function(l) { if (l.source === d) return l.target.target = true; })
@@ -72,7 +70,6 @@ function mouseouted(d) {
 
   SVGNodes.classed("node--target", false)
       .classed("node--source", false)
-      .classed("node--root", node => (node.parent && node.parent.name === ''));
 }
 
 select(self.frameElement).style("height", `${diameter}px`);
@@ -88,33 +85,8 @@ function packageHierarchy(companies) {
   }, { "": {name: "", children: []}});
 
   companies.forEach(company => {
-    let isRootNode = true;
-
-    parentKeys.forEach(key => {
-      if (company[key]) {
-        isRootNode = false;
-        map[company.name].parent = map[company[key][0]];
-        map[company.name].parent.children = map[company.name].parent.children || [];
-        map[company.name].parent.children.push(map[company.name]);
-      }
-    });
-    // Partnerships are weird
-    if (company["partneredWith"]) {
-
-      // company["partneredWith"].forEach(partner => {
-      //   if (!(map[company.name].children && map[company.name].children.includes(map[partner]))) {
-      //     isRootNode = false;
-      //     map[company.name].parent = map[partner];
-      //     map[company.name].parent.children = map[company.name].parent.children || [];
-      //     map[company.name].parent.children.push(map[company.name]);
-      //   }
-      // });
-    }
-
-    if (isRootNode) {
-      map[""].children.push(map[company.name]);
-      map[company.name].parent = map[""];
-    }
+    map[""].children.push(map[company.name]);
+    map[company.name].parent = map[""];
   });
 
   return map[""];
