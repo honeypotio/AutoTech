@@ -40,33 +40,103 @@
     }
 
     .node:hover,
-    .node--source,
-    .node--target {
+    .node--partneredWith,
+    .node--mentors,
+    .node--mentoredBy,
+    .node--acquired,
+    .node--acquiredBy,
+    .node--investedIn,
+    .node--investedBy,
+    .node--founded,
+    .node--foundedBy {
       font-weight: 700;
       font-size: 13px;
       cursor: pointer;
     }
 
-    .node--source {
+    .node--mentors {
       fill: #2ca02c;
     }
 
-    .node--target {
+    .node--mentoredBy {
       fill: #d62728;
     }
 
-    .link--source,
-    .link--target {
-      stroke-opacity: 1;
-      stroke-width: 1px;
+    .node--investedIn {
+      fill: #efa53b;
     }
 
-    .link--source {
+    .node--investedBy {
+      fill: #65c2d1;
+    }
+
+    .node--acquired {
+      fill: #ac6f32;
+    }
+
+    .node--acquiredBy {
+      fill: #315423;
+    }
+
+    .node--founded {
+      fill: #e8c5f4;
+    }
+
+    .node--foundedBy {
+      fill: #a36399;
+    }
+
+    .node--partneredWith {
+      fill: #00f;
+    }
+
+    .link--partneredWith,
+    .link--mentors,
+    .link--mentoredBy,
+    .link--acquired,
+    .link--acquiredBy,
+    .link--investedIn,
+    .link--investedBy,
+    .link--founded,
+    .link--foundedBy {
+      stroke-opacity: 1;
+      stroke-width: 2px;
+    }
+
+    .link--mentoredBy {
       stroke: #d62728;
     }
 
-    .link--target {
+    .link--mentors {
       stroke: #2ca02c;
+    }
+
+    .link--investedIn {
+      stroke: #efa53b;
+    }
+
+    .link--investedBy {
+      stroke: #65c2d1;
+    }
+
+    .link--acquired {
+      stroke: #ac6f32;
+    }
+
+    .link--acquiredBy {
+      stroke: #315423;
+    }
+
+    .link--founded {
+      stroke: #e8c5f4;
+    }
+
+    .link--foundedBy {
+      stroke: #a36399;
+    }
+
+    .link--partneredWith {
+      stroke: #00f;
     }
 
     .link--faded {

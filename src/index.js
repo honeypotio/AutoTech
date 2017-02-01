@@ -12,15 +12,19 @@ import {
   line
 } from './settings';
 
-let SVGLinks = svg.append("g").selectAll(".link"),
-    SVGNodes = svg.append("g").selectAll(".node");
+let SVGLinks = svg.append("g").selectAll(".link");
+let SVGNodes = svg.append("g").selectAll(".node");
+let mappedRelationships = {};
 
 getJSON("data/prelim.json", function(error, companies) {
 
   if (error) {
     throw error
   };
-
+  mappedRelationships = companies.reduce((acc, company) => {
+    acc[company.name] = company;
+    return acc;
+  }, mappedRelationships);
   const hier = packageHierarchy(companies);
   const nodes = cluster.nodes(hier);
   const links = packageImports(nodes, companies);
@@ -53,27 +57,32 @@ getJSON("data/prelim.json", function(error, companies) {
 function mouseovered(d) {
   SVGNodes.each(function(n) { n.target = n.source = false; })
 
-  SVGLinks.classed("link--target", function(l) { if (l.target === d) return l.source.source = true; })
-      .classed("link--source", (path) => {
-        if (path.source === d) {
-          return path.target.target = true;
-        }
-      })
-      .classed("link--faded", function(l){return l.target !== d && l.source !== d })
+  const relationships = ["mentoredBy", "foundedBy", "investedBy", "acquiredBy", "partneredWith", "mentors", "founded", "investedIn", "acquired"];
+
+  relationships.forEach((rel) => {
+    SVGLinks.classed(`link--${rel}`, function(path) {
+      return (mappedRelationships[d.name][rel] && (mappedRelationships[d.name][rel].includes(path.source.name) || mappedRelationships[d.name][rel].includes(path.target.name)));
+    });
+    SVGNodes.classed(`node--${rel}`, function(n) {
+      return (mappedRelationships[d.name][rel] && mappedRelationships[d.name][rel].includes(n.name));
+    });
+  });
+
+  SVGLinks.classed("link--faded", function(l){return l.target !== d && l.source !== d })
       .filter(function(l) { return l.target === d || l.source === d; })
       .each(function() { this.parentNode.appendChild(this); });
-
-  SVGNodes.classed("node--target", function(n) { return n.target; })
-      .classed("node--source", function(n) { return n.source; });
 }
 
 function mouseouted(d) {
-  SVGLinks.classed("link--target", false)
-      .classed("link--source", false)
-      .classed("link--faded", false);
+  const relationships = ["mentoredBy", "foundedBy", "investedBy", "acquiredBy", "partneredWith", "mentors", "founded", "investedIn", "acquired"];
 
-  SVGNodes.classed("node--target", false)
-      .classed("node--source", false)
+  relationships.forEach(rel => {
+    SVGLinks.classed(`link--${rel}`, false);
+    SVGNodes.classed(`node--${rel}`, false);
+  });
+
+  SVGLinks.classed("link--faded", false);
+  SVGNodes.classed("node--faded", false);
 }
 
 select(self.frameElement).style("height", `${diameter}px`);
@@ -81,7 +90,7 @@ select(self.frameElement).style("height", `${diameter}px`);
 // Lazily construct the package hierarchy from class names.
 function packageHierarchy(companies) {
   let map = companies.reduce((acc, el) => {
-    acc[""].children.push({name: el.name, parent: acc[""]})
+    acc[""].children.push({name: el.name, parent: acc[""]});
     return acc;
   }, { "": {name: "", children: []}});
 
@@ -92,7 +101,6 @@ function packageHierarchy(companies) {
 function packageImports(nodes, companies) {
   let map = {};
   let links = [];
-
   // Compute a map from name to node.
   nodes.forEach(function(d) {
     map[d.name] = d;

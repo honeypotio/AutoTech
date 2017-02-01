@@ -5,15 +5,19 @@ var _d = require('d3');
 
 var _settings = require('./settings');
 
-var SVGLinks = _settings.svg.append("g").selectAll(".link"),
-    SVGNodes = _settings.svg.append("g").selectAll(".node");
+var SVGLinks = _settings.svg.append("g").selectAll(".link");
+var SVGNodes = _settings.svg.append("g").selectAll(".node");
+var mappedRelationships = {};
 
 (0, _d.json)("data/prelim.json", function (error, companies) {
 
   if (error) {
     throw error;
   };
-
+  mappedRelationships = companies.reduce(function (acc, company) {
+    acc[company.name] = company;
+    return acc;
+  }, mappedRelationships);
   var hier = packageHierarchy(companies);
   var nodes = _settings.cluster.nodes(hier);
   var links = packageImports(nodes, companies);
@@ -37,31 +41,36 @@ function mouseovered(d) {
     n.target = n.source = false;
   });
 
-  SVGLinks.classed("link--target", function (l) {
-    if (l.target === d) return l.source.source = true;
-  }).classed("link--source", function (path) {
-    if (path.source === d) {
-      return path.target.target = true;
-    }
-  }).classed("link--faded", function (l) {
+  var relationships = ["mentoredBy", "foundedBy", "investedBy", "acquiredBy", "partneredWith", "mentors", "founded", "investedIn", "acquired"];
+
+  relationships.forEach(function (rel) {
+    SVGLinks.classed('link--' + rel, function (path) {
+      return mappedRelationships[d.name][rel] && (mappedRelationships[d.name][rel].includes(path.source.name) || mappedRelationships[d.name][rel].includes(path.target.name));
+    });
+    SVGNodes.classed('node--' + rel, function (n) {
+      return mappedRelationships[d.name][rel] && mappedRelationships[d.name][rel].includes(n.name);
+    });
+  });
+
+  SVGLinks.classed("link--faded", function (l) {
     return l.target !== d && l.source !== d;
   }).filter(function (l) {
     return l.target === d || l.source === d;
   }).each(function () {
     this.parentNode.appendChild(this);
   });
-
-  SVGNodes.classed("node--target", function (n) {
-    return n.target;
-  }).classed("node--source", function (n) {
-    return n.source;
-  });
 }
 
 function mouseouted(d) {
-  SVGLinks.classed("link--target", false).classed("link--source", false).classed("link--faded", false);
+  var relationships = ["mentoredBy", "foundedBy", "investedBy", "acquiredBy", "partneredWith", "mentors", "founded", "investedIn", "acquired"];
 
-  SVGNodes.classed("node--target", false).classed("node--source", false);
+  relationships.forEach(function (rel) {
+    SVGLinks.classed('link--' + rel, false);
+    SVGNodes.classed('node--' + rel, false);
+  });
+
+  SVGLinks.classed("link--faded", false);
+  SVGNodes.classed("node--faded", false);
 }
 
 (0, _d.select)(self.frameElement).style("height", _settings.diameter + 'px');
@@ -80,7 +89,6 @@ function packageHierarchy(companies) {
 function packageImports(nodes, companies) {
   var map = {};
   var links = [];
-
   // Compute a map from name to node.
   nodes.forEach(function (d) {
     map[d.name] = d;
