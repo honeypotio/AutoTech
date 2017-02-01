@@ -60,7 +60,13 @@ function mouseovered(d) {
   const relationships = ["mentoredBy", "foundedBy", "investedBy", "acquiredBy", "partneredWith", "mentors", "founded", "investedIn", "acquired"];
 
   relationships.forEach((rel) => {
+    SVGNodes.classed("node--faded", (node) => {
+      return !(mappedRelationships[d.name][rel] && mappedRelationships[d.name][rel].includes(node.name));
+    });
     SVGLinks.classed(`link--${rel}`, function(path) {
+      if (path.target !== d && path.source !== d) {
+        return false;
+      }
       return (mappedRelationships[d.name][rel] && (mappedRelationships[d.name][rel].includes(path.source.name) || mappedRelationships[d.name][rel].includes(path.target.name)));
     });
     SVGNodes.classed(`node--${rel}`, function(n) {

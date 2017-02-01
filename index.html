@@ -23,10 +23,6 @@
       font-weight: bold;
     }
 
-    .node--faded {
-      opacity: 0.2;
-    }
-
     .node:hover {
       fill: #000;
     }
@@ -37,6 +33,10 @@
       fill: none;
       pointer-events: none;
       transition: all 0.2s ease-in-out;
+    }
+
+    .node--faded {
+      fill-opacity: 0.5;
     }
 
     .node:hover,
@@ -52,6 +52,7 @@
       font-weight: 700;
       font-size: 13px;
       cursor: pointer;
+      fill-opacity: 1;
     }
 
     .node--mentors {
