@@ -1,0 +1,60 @@
+.link {
+  stroke: steelblue;
+  stroke-opacity: .4;
+  fill: none;
+  pointer-events: none;
+  transition: all 0.2s ease-in-out;
+
+  &--partneredWith,
+  &--mentors,
+  &--mentoredBy,
+  &--acquired,
+  &--acquiredBy,
+  &--investedIn,
+  &--investedBy,
+  &--founded,
+  &--foundedBy {
+    stroke-opacity: 1;
+    stroke-width: 2px;
+  }
+  
+  &--mentoredBy {
+    stroke: #d62728;
+  }
+
+  &--mentors {
+    stroke: #2ca02c;
+  }
+
+  &--investedIn {
+    stroke: #efa53b;
+  }
+
+  &--investedBy {
+    stroke: #65c2d1;
+  }
+
+  &--acquired {
+    stroke: #ac6f32;
+  }
+
+  &--acquiredBy {
+    stroke: #315423;
+  }
+
+  &--founded {
+    stroke: #e8c5f4;
+  }
+
+  &--foundedBy {
+    stroke: #a36399;
+  }
+
+  &--partneredWith {
+    stroke: #00f;
+  }
+
+  &--faded {
+    stroke: rgba(200,200,200, 0.4);
+  }
+}

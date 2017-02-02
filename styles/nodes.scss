@@ -1,0 +1,71 @@
+.node {
+  font-size: 11px;
+  font-weight: 300;
+  fill: #585858;
+  transition: all 0.2s ease-in-out;
+
+  &--faded {
+    fill-opacity: 0.5;
+  }
+
+  &:hover,
+  &--partneredWith,
+  &--mentors,
+  &--mentoredBy,
+  &--acquired,
+  &--acquiredBy,
+  &--investedIn,
+  &--investedBy,
+  &--founded,
+  &--foundedBy {
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    fill-opacity: 1;
+  }
+
+  &--root {
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  &:hover {
+    fill: #000;
+  }
+
+  &--mentors {
+    fill: #2ca02c;
+  }
+
+  &--mentoredBy {
+    fill: #d62728;
+  }
+
+  &--investedIn {
+    fill: #efa53b;
+  }
+
+  &--investedBy {
+    fill: #65c2d1;
+  }
+
+  &--acquired {
+    fill: #ac6f32;
+  }
+
+  &--acquiredBy {
+    fill: #315423;
+  }
+
+  &--founded {
+    fill: #e8c5f4;
+  }
+
+  &--foundedBy {
+    fill: #a36399;
+  }
+
+  &--partneredWith {
+    fill: #00f;
+  }
+}
