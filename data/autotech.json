@@ -7,6 +7,14 @@
     "acquired": ["SEAT", "ŠKODA", "Bentley", "Bugatti", "Scania", "MAN", "Audi AG", "Porsche"]
   },
   {
+    "name": "ŚKODA",
+    "acquiredBy": ["Volkswagen Group"]
+  },
+  {
+    "name": "Plugsurfing",
+    "mentoredBy": ["Volkswagen Group"]
+  },
+  {
     "name": "Anacode",
     "mentoredBy": ["Volkswagen Group"]
   },
@@ -274,14 +282,22 @@
   {
     "name": "Daimler",
     "investedIn": ["HERE", "Blacklane", "BAIC Motor", "tiramizoo", "MATTERNET", "Starship Technologies", "Motor Coach Industries", "Li-Tec Battery", "ParkTag"],
-    "partneredWith": ["DAF Trucks", "Iveco", "MAN", "Scania", "Volvo", "Plug and Play China"],
+    "partneredWith": ["DAF Trucks", "Iveco", "MAN", "Scania", "Volvo", "Plug and Play China", "Uber"],
     "founded": ["Daimler Mobility Services GmbH", "Moovel", "Daimler TSS GmbH", "FleetBoard", "Deutsche ACCUmotive", "Innovation Lab", "Daimler Trucks North America", "Mercedes Pay", "Daimler Financial Services AG"],
     "acquired": ["FlightCar"]
+  },
+  {
+    "name": "Uber",
+    "partneredWith": ["Daimler"]
   },
   {
     "name": "Daimler Financial Services AG",
     "foundedBy": ["Daimler"],
     "acquired": ["PayCash Europe SA"]
+  },
+  {
+    "name": "PayCash Europe SA",
+    "acquiredBy": ["Daimler Financial Services AG"]
   },
   {
     "name": "Mercedes Pay",
@@ -328,12 +344,20 @@
   {
     "name": "RideScout",
     "acquiredBy": ["Moovel"],
-    "acquired": ["GloveSherpa"]
+    "acquired": ["GlobeSherpa"]
+  },
+  {
+    "name": "GlobeSherpa",
+    "acquiredBy": ["RideScout"]
   },
   {
     "name": "myTaxi",
     "acquiredBy": ["Moovel"],
     "acquired": ["Hailo"]
+  },
+  {
+    "name": "Hailo",
+    "acquiredBy": ["myTaxi"]
   },
   {
     "name": "FlightCar",
@@ -413,6 +437,10 @@
     "founded": ["DriveNow", "ChargeNow", "ReachNow", "ParkNow", "BMW i Ventures Incubator"],
     "investedIn": ["MobileROI", "Moovit", "Chargepoint", "Chargemaster", "JustPark", "STRATIM", "MyCityWay", "Scoop", "Rever Moto", "Zendrive", "Life360", "Carbon3D"],
     "partneredWith": ["RideCell"]
+  },
+  {
+    "name": "BMW i Ventures Incubator",
+    "foundedBy": ["BMW i Ventures"]
   },
   {
     "name": "ChargeNow",
@@ -522,7 +550,19 @@
     "name": "Sixt Ventures",
     "foundedBy": ["Sixt"],
     "founded": ["DriveNow", "myDriver", "autohaus24"],
-    "investedIn": ["refindedAds"]
+    "investedIn": ["refinedAds"]
+  },
+  {
+    "name": "refinedAds",
+    "investedBy": ["Sixt Ventures"]
+  },
+  {
+    "name": "myDriver",
+    "foundedBy": ["Sixt Ventures"]
+  },
+  {
+    "name": "autohaus24",
+    "foundedBy": ["Sixt Ventures"]
   },
   {
     "name": "Robert Bosch GmbH",
@@ -530,6 +570,10 @@
     "investedIn": ["ParkTag"],
     "partneredWith": ["ACTIVATR"],
     "acquired": ["Seeo"]
+  },
+  {
+    "name": "Seeo",
+    "acquiredBy": ["Robert Bosch GmbH"]
   },
   {
     "name": "Robert Bosch Venture Capital GmbH",
