@@ -7,10 +7,6 @@
     "acquired": ["SEAT", "ŠKODA", "Bentley", "Bugatti", "Scania", "MAN", "Audi AG", "Porsche"]
   },
   {
-    "name": "ŚKODA",
-    "acquiredBy": ["Volkswagen Group"]
-  },
-  {
     "name": "Plugsurfing",
     "mentoredBy": ["Volkswagen Group"]
   },
@@ -83,7 +79,7 @@
     "investedBy": ["Volkswagen Group"]
   },
   {
-    "name": "Škoda",
+    "name": "ŠKODA",
     "acquiredBy": ["Volkswagen Group"]
   },
   {
