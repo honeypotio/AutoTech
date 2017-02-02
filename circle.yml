@@ -1,4 +1,3 @@
 dependencies:
   pre:
-    - bundle install
     - npm install
