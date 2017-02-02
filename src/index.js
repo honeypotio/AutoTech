@@ -16,7 +16,7 @@ let SVGLinks = svg.append("g").selectAll(".link");
 let SVGNodes = svg.append("g").selectAll(".node");
 let mappedRelationships = {};
 
-getJSON("data/prelim.json", function(error, companies) {
+getJSON("data/autotech.json", function(error, companies) {
 
   if (error) {
     throw error

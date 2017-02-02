@@ -9,7 +9,7 @@ var SVGLinks = _settings.svg.append("g").selectAll(".link");
 var SVGNodes = _settings.svg.append("g").selectAll(".node");
 var mappedRelationships = {};
 
-(0, _d.json)("data/prelim.json", function (error, companies) {
+(0, _d.json)("data/autotech.json", function (error, companies) {
 
   if (error) {
     throw error;
