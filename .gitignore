@@ -3,6 +3,7 @@ babel/
 node_modules/
 npm-debug.log
 **/*.js.map
+.sass-cache/
 
 # OSX files
 .DS_Store

@@ -40,10 +40,24 @@ module.exports = function (grunt) {
         }
       }
     },
+    sass: {
+      dist: {
+        options: {
+          style: 'compressed'
+        },
+        files: [{
+          expand: true,
+          cwd: 'styles',
+          src: ['main.scss'],
+          dest: 'public/styles',
+          ext: '.css'
+        }]
+      }
+    },
     watch: {
       default: {
-        files: ['./src/**/*.js'],
-        tasks: ['babel', 'browserify:app']
+        files: ['./src/**/*.js', './styles/**/*.scss'],
+        tasks: ['babel', 'browserify:app', 'sass']
       },
       options: {
         spawn: false
@@ -51,21 +65,23 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('build', ['babel', 'browserify'], function() {
+  grunt.registerTask('build', ['babel', 'browserify', 'sass'], function() {
     cleanBabelFolder();
 
     grunt.loadNpmTasks('grunt-babel');
     grunt.loadNpmTasks('grunt-browserify');
+    grunt.loadNpmTasks('grunt-contrib-sass');
 
-    grunt.task.run('babel', 'browserify:vendor', 'browserify:app');
+    grunt.task.run('babel', 'browserify:vendor', 'browserify:app', 'sass');
   });
 
-  grunt.registerTask('watch', ['babel', 'browserify', 'watch'], function() {
+  grunt.registerTask('watch', ['babel', 'browserify', 'sass', 'watch'], function() {
     grunt.loadNpmTasks('grunt-babel');
     grunt.loadNpmTasks('grunt-browserify');
+    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.task.run('babel', 'browserify:vendor', 'browserify:app', 'watch:default');
+    grunt.task.run('babel', 'browserify:vendor', 'browserify:app', 'sass', 'watch:default');
   });
 
   function cleanBabelFolder(){

@@ -1,4 +1,6 @@
 dependencies:
   pre:
-    - bundle install
     - npm install
+machine:
+  node:
+    version: 6.9.5
