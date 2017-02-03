@@ -16,8 +16,8 @@ export const line = d3.svg.line.radial()
                       .radius(function(d) { return d.y; })
                       .angle(function(d) { return d.x / 180 * Math.PI; });
 
-export const svg = d3.select("body").append("svg")
+export const svg = d3.select(".autotech-wheel").append("svg")
                     .attr("width", window.innerWidth)
-                    .attr("height", diameter)
+                    .attr("height", (diameter + 200))
                     .append("g")
-                    .attr("transform", "translate(" + (window.innerWidth / 2) + "," + radius + ")");
+                    .attr("transform", "translate(" + ((window.innerWidth / 2) + 140) + "," + (radius + 100) + ")");

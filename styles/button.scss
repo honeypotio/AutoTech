@@ -1,0 +1,17 @@
+.btn {
+  display: block;
+  margin: 20px 5px;
+  padding: 15px 8px;
+  text-align: center;
+  color: $light-gray-2-color;
+  background-color: $blue-color;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
+
+  &:hover,
+  &:active {
+    background-color: $hover-blue;
+    text-decoration: none;
+  }
+}

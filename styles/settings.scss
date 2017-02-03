@@ -1,13 +1,97 @@
-* {
-  box-sizing: border-box;
-}
+// Colors
+$black: #000000;
+$light-blue: #585858;
+$almost-black-color: #1f2228;
+$black: #000000;
+$white: #ffffff;
+$green-color: #4cb208;
+$red-color: #e85b0e;
+$pink-color: #ff7397;
+$red-link-color: #f8522d;
+$tech-stack-active-color: #8b7bff;
+$orange-color: #ffbe0f;
+$dark-orange-color: #e85b0e;
+$very-light-gray-color: #f9f9f9;
+$very-light-gray-2-color: #f2f2f2;
+$very-light-gray-3-color: #f8f8f8;
+$light-gray-1-color: #e5ecec;
+$light-gray-2-color: #f5f8f7;
+$light-gray-3-color: #e8ecf1;
+$light-gray-4-color: #f5f8fa;
+$light-gray-5-color: #e4e8ec;
+$light-gray-6-color: #d9dfe7;
+$light-gray-7-color: #d6d6d6;
+$light-gray-8-color: #bebebe;
+$light-gray-9-color: #dddddd;
+$light-gray-10-color: #dfe8f0;
+$light-gray-11-color: #f5f5f5;
+$light-gray-12-color: #fafafa;
+$light-gray-13-color: #eeeeee;
+$light-gray-14-color: #cecece;
+$default-gray: #808080;
+$gray-1-color: #858b97;
+$gray-2-color: #86a5bb;
+$gray-3-color: #80a1be;
+$gray-4-color: #9ca9b7;
+$gray-5-color: #ece9f1;
+$gray-6-color: #e2e8f0;
+$gray-7-color: #808692;
+$gray-8-color: #efefef;
+$gray-9-color: #999999;
+$gray-10-color: #525252;
+$gray-11-color: #e0e6eb;
+$gray-12-color: #828282;
+$gray-13-color: #e3e3e3;
+$gray-14-color: #dcdde0;
+$dark-gray-1-color: #606c78;
+$dark-gray-2-color: #757575;
+$dark-gray-3-color: #979797;
+$violet-color: #6b34bc;
+$blue-color: #3685d6;
+$hover-blue: #256cb4;
+$dark-blue-color: #1f2228;
+$dark-blue-2-color: #0f4986;
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
+$light-blue-color: #f5f8fa;
+$light-blue-2-color: #b4cbe0;
+$light-blue-3-color: #e8f1f7;
 
-.header__title {
-  text-align: center;
-}
+// Relationship colors
+$mentored-by: #0EE0B6;
+$founded-by: #0E826B;
+$invested-by: #F19B9E; 
+$acquired-by: #DF0F16;
+$partnered-with: #F6C823;
+$mentors: #FA9115;
+$founded: #8B73E5;
+$invested-in: #42BAF9;
+$acquired: #033C79;
+$faded: rgba(200,200,200, 0.4);
+$hover: $black;
+$inactive: $light-blue;
+
+// Font sizes
+$fs-0: 12px;
+$fs-1: 14px;
+$fs-2: 16px;
+$fs-3: 18px;
+$fs-4: 22px;
+$fs-5: 36px;
+$fs-6: 24px;
+$fs-7: 20px;
+$fs-8: 13px;
+$fs-9: 26px;
+$fs-10: 15px;
+$fs-11: 23px;
+$fs-12: 25px;
+$fs-13: 45px;
+$fs-14: 19px;
+$fs-15: 42px;
+$fs-16: 11px;
+
+// Font weights
+$fw-lighter: 100;
+$fw-light: 200;
+$fw-normal: 400;
+$fw-2: 500;
+$fw-bold: bold;

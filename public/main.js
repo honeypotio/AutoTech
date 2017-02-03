@@ -147,7 +147,7 @@ var line = exports.line = d3.svg.line.radial().interpolate("bundle").tension(.85
                       return d.x / 180 * Math.PI;
 });
 
-var svg = exports.svg = d3.select("body").append("svg").attr("width", window.innerWidth).attr("height", diameter).append("g").attr("transform", "translate(" + window.innerWidth / 2 + "," + radius + ")");
+var svg = exports.svg = d3.select(".autotech-wheel").append("svg").attr("width", window.innerWidth).attr("height", diameter + 200).append("g").attr("transform", "translate(" + (window.innerWidth / 2 + 140) + "," + (radius + 100) + ")");
 
 
 },{"d3":"d3"}]},{},[1]);
