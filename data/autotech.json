@@ -277,10 +277,18 @@
   },
   {
     "name": "Daimler",
-    "investedIn": ["HERE", "Blacklane", "BAIC Motor", "tiramizoo", "MATTERNET", "Starship Technologies", "Motor Coach Industries", "Li-Tec Battery", "ParkTag"],
+    "investedIn": ["HERE", "Blacklane", "BAIC Motor", "tiramizoo", "MATTERNET", "Starship Technologies", "Motor Coach Industries", "Li-Tec Battery", "ParkTag", "Flixbus"],
     "partneredWith": ["DAF Trucks", "Iveco", "MAN", "Scania", "Volvo", "Plug and Play China", "Uber"],
     "founded": ["Daimler Mobility Services GmbH", "Moovel", "Daimler TSS GmbH", "FleetBoard", "Deutsche ACCUmotive", "Innovation Lab", "Daimler Trucks North America", "Mercedes Pay", "Daimler Financial Services AG"],
-    "acquired": ["FlightCar"]
+    "acquired": ["FlightCar", "Taxibeat"]
+  },
+  {
+    "name": "Flixbus",
+    "investedBy": ["Daimler"]
+  },
+  {
+    "name": "Taxibeat",
+    "acquiredBy": ["Daimler"]
   },
   {
     "name": "Uber",
