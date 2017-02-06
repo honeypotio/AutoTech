@@ -26,6 +26,7 @@
       text-decoration: none;
       color: $blue-color;
       cursor: pointer;
+      font-weight: $fw-bold;
 
       &:hover,
       &:active {
@@ -40,7 +41,7 @@
 
   &__item-header {
     font-size: $fs-6;
-    font-weight: $fw-light;
+    font-weight: $fw-normal;
     color: $gray-10-color;
     margin: 15px 0;
     padding: 10px 0;
