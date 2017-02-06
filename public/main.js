@@ -134,7 +134,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 var diameter = exports.diameter = 720;
 var radius = exports.radius = diameter / 2;
 var innerRadius = exports.innerRadius = radius - 120;
-var svgWidth = document.body.clientWidth > diameter + 400 ? document.body.clientWidth : diameter + 400;
+var svgWidth = document.body.clientWidth > diameter + 280 ? document.body.clientWidth : diameter + 280;
 
 var cluster = exports.cluster = d3.layout.cluster().size([360, innerRadius]).value(function (d) {
                       return d.size;
@@ -148,7 +148,7 @@ var line = exports.line = d3.svg.line.radial().interpolate("bundle").tension(.85
                       return d.x / 180 * Math.PI;
 });
 
-var svg = exports.svg = d3.select(".autotech-wheel").append("svg").attr("width", svgWidth).attr("height", diameter + 200).append("g").attr("transform", "translate(" + (svgWidth / 2 + 140) + "," + (radius + 100) + ")");
+var svg = exports.svg = d3.select(".autotech-wheel").append("svg").attr("width", svgWidth).attr("height", diameter + 200).append("g").attr("transform", "translate(" + (svgWidth / 2 + 100) + "," + (radius + 100) + ")");
 
 
 },{"d3":"d3"}]},{},[1]);

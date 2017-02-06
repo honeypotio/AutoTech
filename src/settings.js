@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 export const diameter = 720;
 export const radius = diameter / 2;
 export const innerRadius = radius - 120;
-const svgWidth = document.body.clientWidth > (diameter + 400) ? document.body.clientWidth : (diameter + 400);
+const svgWidth = document.body.clientWidth > (diameter + 280) ? document.body.clientWidth : (diameter + 280);
 
 export const cluster = d3.layout.cluster()
                         .size([360, innerRadius])
@@ -21,4 +21,4 @@ export const svg = d3.select(".autotech-wheel").append("svg")
                     .attr("width", svgWidth)
                     .attr("height", (diameter + 200))
                     .append("g")
-                    .attr("transform", `translate(${((svgWidth / 2) + 140)},${(radius + 100)})`);
+                    .attr("transform", `translate(${((svgWidth / 2) + 100)},${(radius + 100)})`);
