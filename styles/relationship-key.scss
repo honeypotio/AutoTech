@@ -1,0 +1,54 @@
+.relationship-key {
+  font-weight: $fw-light;
+  color: $gray-10-color;
+
+  &__item {
+    line-height: 24px;
+  }
+
+  &__code {
+    margin-right: 5px;
+    margin-top: 4px;
+    vertical-align: top;
+    width: 15px;
+    height: 15px;
+    border-radius: 8px;
+    display: inline-block;
+
+    &--mentored-by {
+      background-color: $mentored-by;
+    }
+
+    &--mentors {
+      background-color: $mentors;
+    }
+
+    &--invested-in {
+      background-color: $invested-in;
+    }
+
+    &--invested-by {
+      background-color: $invested-by;
+    }
+
+    &--acquired {
+      background-color: $acquired;
+    }
+
+    &--acquired-by {
+      background-color: $acquired-by;
+    }
+
+    &--founded {
+      background-color: $founded;
+    }
+
+    &--founded-by {
+      background-color: $founded-by;
+    }
+
+    &--partnered-with {
+      background-color: $partnered-with;
+    }
+  }
+}

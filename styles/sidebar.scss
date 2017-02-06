@@ -1,0 +1,60 @@
+.sidebar {
+  position: absolute;
+  width: 280px;
+  padding: 20px 10px 0 20px;
+  background-color: $very-light-gray-color;
+
+  @media #{$non-desktop} {
+    width: 200px
+  }
+
+  &__title {
+    font-size: $fs-5;
+    font-weight: $fw-bold;
+  }
+
+  &__text {
+    margin: 20px 0;
+    font-weight: $fw-light;
+    font-size: $fs-1;
+    line-height: $fs-2;
+    color: $gray-10-color;
+
+    &--emphasis {
+      font-weight: $fw-bold;
+    }
+
+    a,
+    a:hover,
+    a:active {
+      text-decoration: none;
+      color: $blue-color;
+      cursor: pointer;
+      font-weight: $fw-bold;
+
+      &:hover,
+      &:active {
+        color: $hover-blue;
+      }
+    }
+  }
+
+  &__item {
+    margin: 40px 0;
+  }
+
+  &__item-header {
+    font-size: $fs-6;
+    font-weight: $fw-normal;
+    color: $gray-10-color;
+    margin: 15px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid $light-gray-2-color;
+  }
+
+  &__tagline {
+    color: $gray-10-color;
+    font-size: $fs-2;
+    font-weight: $fw-bold;
+  }
+}

@@ -1,0 +1,22 @@
+.btn {
+  display: block;
+  width: 200px;
+  margin: 20px 0;
+  padding: 15px 8px;
+  text-align: center;
+  color: $light-gray-1-color;
+  background-color: $blue-color;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
+
+  @media #{$non-desktop} {
+    width: 100px;
+  }
+
+  &:hover,
+  &:active {
+    background-color: $hover-blue;
+    text-decoration: none;
+  }
+}

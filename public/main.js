@@ -9,15 +9,17 @@ var SVGLinks = _settings.svg.append("g").selectAll(".link");
 var SVGNodes = _settings.svg.append("g").selectAll(".node");
 var mappedRelationships = {};
 
+// Get Data
 (0, _d.json)("data/autotech.json", function (error, companies) {
-
   if (error) {
     throw error;
   };
+
   mappedRelationships = companies.reduce(function (acc, company) {
     acc[company.name] = company;
     return acc;
   }, mappedRelationships);
+
   var hier = packageHierarchy(companies);
   var nodes = _settings.cluster.nodes(hier);
   var links = packageImports(nodes, companies);
@@ -28,15 +30,17 @@ var mappedRelationships = {};
   }).attr("class", "link").attr("d", _settings.line);
 
   SVGNodes = SVGNodes.data(nodes).enter().append("text").attr("class", "node").attr("dy", ".31em").attr("transform", function (d) {
-    return 'rotate(' + (d.x - 90) + ')translate(' + (d.y + 2) + ',0)' + (d.x < 180 ? "" : "rotate(180)");
+    return 'rotate(' + (d.x - 90) + '), translate(' + (d.y + 2) + ',0)' + (d.x < 180 ? "" : "rotate(180)");
   }).style("text-anchor", function (d) {
     return d.x < 180 ? "start" : "end";
   }).text(function (d) {
     return d.name;
-  }).on("mouseover", mouseovered).on("mouseout", mouseouted);
+  }).on("mouseover", hoverAction).on("mouseout", removeHoverAction);
 });
 
-function mouseovered(d) {
+function hoverAction(d) {
+  var _this = this;
+
   SVGNodes.each(function (n) {
     n.target = n.source = false;
   });
@@ -63,11 +67,11 @@ function mouseovered(d) {
   }).filter(function (l) {
     return l.target === d || l.source === d;
   }).each(function () {
-    this.parentNode.appendChild(this);
+    _this.parentNode.appendChild(_this);
   });
 }
 
-function mouseouted(d) {
+function removeHoverAction(d) {
   var relationships = ["mentoredBy", "foundedBy", "investedBy", "acquiredBy", "partneredWith", "mentors", "founded", "investedIn", "acquired"];
 
   relationships.forEach(function (rel) {
@@ -134,6 +138,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 var diameter = exports.diameter = 720;
 var radius = exports.radius = diameter / 2;
 var innerRadius = exports.innerRadius = radius - 120;
+var svgWidth = document.body.clientWidth > diameter + 280 ? document.body.clientWidth : diameter + 280;
 
 var cluster = exports.cluster = d3.layout.cluster().size([360, innerRadius]).value(function (d) {
                       return d.size;
@@ -147,7 +152,7 @@ var line = exports.line = d3.svg.line.radial().interpolate("bundle").tension(.85
                       return d.x / 180 * Math.PI;
 });
 
-var svg = exports.svg = d3.select("body").append("svg").attr("width", window.innerWidth).attr("height", diameter).append("g").attr("transform", "translate(" + window.innerWidth / 2 + "," + radius + ")");
+var svg = exports.svg = d3.select(".autotech-wheel").append("svg").attr("width", svgWidth).attr("height", diameter + 200).append("g").attr("transform", "translate(" + (svgWidth / 2 + 100) + "," + (radius + 100) + ")");
 
 
 },{"d3":"d3"}]},{},[1]);
