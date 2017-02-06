@@ -5,6 +5,11 @@
   margin-top: 250px;
   padding: 40px 80px;
 
+  @media #{$non-desktop} {
+    margin-top: 480px;
+    padding: 20px;
+  }
+
   &:after {
     content: " ";
     display: block;
@@ -15,6 +20,10 @@
     position: absolute;
     top: -35px;
     right: 200px;
+
+    @media #{$non-desktop} {
+      display: none;
+    }
   }
 
   &__links {
@@ -24,6 +33,10 @@
   &__link-item {
     float: left;
     margin: 10px 15px;
+
+    @media #{$non-desktop} {
+      margin: 10px 3px;
+    }
 
     a {
       font-weight: $fw-light;
@@ -36,6 +49,11 @@
   &__share {
     float: right;
     list-style: none;
+
+    @media #{$non-desktop} {
+      float: left;
+      clear: left;
+    }
   }
 
   &__share-item {

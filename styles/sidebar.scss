@@ -2,7 +2,11 @@
   position: absolute;
   width: 280px;
   padding: 20px 10px 0 20px;
-  background-color: $very-light-gray-2-color;
+  background-color: $very-light-gray-color;
+
+  @media #{$non-desktop} {
+    width: 200px
+  }
 
   &__title {
     font-size: $fs-5;
@@ -45,7 +49,7 @@
     color: $gray-10-color;
     margin: 15px 0;
     padding: 10px 0;
-    border-bottom: 1px solid $light-gray-7-color;
+    border-bottom: 1px solid $light-gray-2-color;
   }
 
   &__tagline {

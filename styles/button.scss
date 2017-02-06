@@ -10,6 +10,10 @@
   text-decoration: none;
   border-radius: 5px;
 
+  @media #{$non-desktop} {
+    width: 100px;
+  }
+
   &:hover,
   &:active {
     background-color: $hover-blue;
