@@ -16,22 +16,24 @@ let SVGLinks = svg.append("g").selectAll(".link");
 let SVGNodes = svg.append("g").selectAll(".node");
 let mappedRelationships = {};
 
+// Get Data
 getJSON("data/autotech.json", function(error, companies) {
-
   if (error) {
     throw error
   };
+
   mappedRelationships = companies.reduce((acc, company) => {
     acc[company.name] = company;
     return acc;
   }, mappedRelationships);
+
   const hier = packageHierarchy(companies);
   const nodes = cluster.nodes(hier);
   const links = packageImports(nodes, companies);
 
   SVGLinks = SVGLinks.data(bundle(links))
         .enter().append("path")
-        .each(function(d) {
+        .each((d) => {
           d.source = d[0];
           d.target = d[d.length - 1];
         })
@@ -42,19 +44,19 @@ getJSON("data/autotech.json", function(error, companies) {
           .enter().append("text")
           .attr("class", "node")
           .attr("dy", ".31em")
-          .attr("transform", function(d) {
-            return `rotate(${ (d.x - 90) })translate(${ (d.y + 2) },0)${ d.x < 180 ? "" : "rotate(180)" }`;
+          .attr("transform", (d) => {
+            return `rotate(${ (d.x - 90) }), translate(${ (d.y + 2) },0)${ d.x < 180 ? "" : "rotate(180)" }`;
           })
           .style("text-anchor", function(d) {
             return d.x < 180 ? "start" : "end";
           })
           .text(function(d) {return d.name; })
-          .on("mouseover", mouseovered)
-          .on("mouseout", mouseouted);
+          .on("mouseover", hoverAction)
+          .on("mouseout", removeHoverAction);
 });
 
 
-function mouseovered(d) {
+function hoverAction(d) {
   SVGNodes.each(function(n) { n.target = n.source = false; })
 
   const relationships = ["mentoredBy", "foundedBy", "investedBy", "acquiredBy", "partneredWith", "mentors", "founded", "investedIn", "acquired"];
@@ -74,12 +76,12 @@ function mouseovered(d) {
     });
   });
 
-  SVGLinks.classed("link--faded", function(l){return l.target !== d && l.source !== d })
-      .filter(function(l) { return l.target === d || l.source === d; })
-      .each(function() { this.parentNode.appendChild(this); });
+  SVGLinks.classed("link--faded", (l) => { return l.target !== d && l.source !== d; })
+      .filter((l) => { return l.target === d || l.source === d; })
+      .each(() => { this.parentNode.appendChild(this); });
 }
 
-function mouseouted(d) {
+function removeHoverAction(d) {
   const relationships = ["mentoredBy", "foundedBy", "investedBy", "acquiredBy", "partneredWith", "mentors", "founded", "investedIn", "acquired"];
 
   relationships.forEach(rel => {
