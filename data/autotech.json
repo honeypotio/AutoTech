@@ -1,10 +1,15 @@
 [
   {
     "name": "Volkswagen Group",
-    "founded": ["VW Innovation Fund", "Digital Lab", "Data Lab", "Mobility Lab", "Volkswagen Electronic Research Lab", "MOIA", "CyMotive Technologies"],
+    "founded": ["VW Innovation Fund", "Volkswagen Digital Lab", "Volkswagen Data Lab", " Volkswagen Mobility Lab", "Volkswagen Electronic Research Lab", "MOIA", "CyMotive Technologies"],
     "mentors": ["Anacode", "DocRAID", "Edisonweb", "Liftago", "Re2You", "Just Charge", "Plugsurfing", "gigaaa"],
     "investedIn": ["Gett", "QuantumScape", "Navistar"],
-    "acquired": ["SEAT", "ŠKODA", "Bentley", "Bugatti", "Scania", "MAN", "Audi AG", "Porsche"]
+    "acquired": ["SEAT", "ŠKODA", "Bentley", "Bugatti", "Scania", "MAN", "Audi AG", "Porsche"],
+    "partneredWith": ["Pivotal Software"]
+  },
+  {
+    "name": "Pivotal Software",
+    "partneredWith": ["Volkswagen Group"]
   },
   {
     "name": "Plugsurfing",
@@ -43,15 +48,15 @@
     "foundedBy": ["Volkswagen Group"]
   },
   {
-    "name": "Digital Lab",
+    "name": "Volkswagen Digital Lab",
     "foundedBy": ["Volkswagen Group"]
   },
   {
-    "name": "Data Lab",
+    "name": "Volkswagen Data Lab",
     "foundedBy": ["Volkswagen Group"]
   },
   {
-    "name": "Mobility Lab",
+    "name": "Volkswagen Mobility Lab",
     "foundedBy": ["Volkswagen Group"]
   },
   {
@@ -186,7 +191,7 @@
   },
   {
     "name": "Audi AG",
-    "founded": ["Audi at Home", "Audi Piloted Driving", "Audi Fit Driving", "Audi Shared Fleet", "Flying Health Incubator", "SDS Company", "Audi Electronic Venture GmbH", "Audi Business Innovation GmbH"],
+    "founded": ["Audi at Home", "Audi Piloted Driving", "Audi Fit Driving", "Audi Shared Fleet", "Flying Health Incubator", "SDS Company", "Audi Electronics Venture GmbH", "Audi Business Innovation GmbH"],
     "investedIn": ["HERE", "Silvercar", "TTTech Computertechnik AG"],
     "acquiredBy": ["Volkswagen Group"],
     "acquired": ["Lamborghini"]
@@ -237,7 +242,7 @@
     "acquiredBy": ["Lamborghini"]
   },
   {
-    "name": "Audi Electronic Venture GmbH",
+    "name": "Audi Electronics Venture GmbH",
     "foundedBy": ["Audi AG"],
     "investedIn": ["NIRA Dynamics AB", "Quartett mobile GmbH", "Cubic Telecom Limited"],
     "founded": ["e.Solutions GmbH", "Automotive Safety Technologies GmbH", "Elektronische Fahrwerksysteme GmbH", "TKI Automotive GmbH"],
@@ -245,31 +250,31 @@
   },
   {
     "name": "NIRA Dynamics AB",
-    "investedBy": ["Audi Electronic Venture GmbH"]
+    "investedBy": ["Audi Electronics Venture GmbH"]
   },
   {
     "name": "Quartett mobile GmbH",
-    "investedBy": ["Audi Electronic Venture GmbH"]
+    "investedBy": ["Audi Electronics Venture GmbH"]
   },
   {
     "name": "Cubic Telecom Limited",
-    "investedBy": ["Audi Electronic Venture GmbH"]
+    "investedBy": ["Audi Electronics Venture GmbH"]
   },
   {
     "name": "e.Solutions GmbH",
-    "foundedBy": ["Audi Electronic Venture GmbH"]
+    "foundedBy": ["Audi Electronics Venture GmbH"]
   },
   {
     "name": "Automotive Safety Technologies GmbH",
-    "foundedBy": ["Audi Electronic Venture GmbH"]
+    "foundedBy": ["Audi Electronics Venture GmbH"]
   },
   {
     "name": "Elektronische Fahrwerksysteme GmbH",
-    "foundedBy": ["Audi Electronic Venture GmbH"]
+    "foundedBy": ["Audi Electronics Venture GmbH"]
   },
   {
     "name": "TKI Automotive GmbH",
-    "foundedBy": ["Audi Electronic Venture GmbH"]
+    "foundedBy": ["Audi Electronics Venture GmbH"]
   },
   {
     "name": "HERE",
@@ -279,7 +284,7 @@
     "name": "Daimler",
     "investedIn": ["HERE", "Blacklane", "BAIC Motor", "tiramizoo", "MATTERNET", "Starship Technologies", "Motor Coach Industries", "Li-Tec Battery", "ParkTag", "Flixbus"],
     "partneredWith": ["DAF Trucks", "Iveco", "MAN", "Scania", "Volvo", "Plug and Play China", "Uber"],
-    "founded": ["Daimler Mobility Services GmbH", "Moovel", "Daimler TSS GmbH", "FleetBoard", "Deutsche ACCUmotive", "Innovation Lab", "Daimler Trucks North America", "Mercedes Pay", "Daimler Financial Services AG"],
+    "founded": ["Daimler Mobility Services GmbH", "Moovel", "Daimler TSS GmbH", "FleetBoard", "Deutsche ACCUmotive", "Daimler Innovation Lab", "Daimler Trucks North America", "Mercedes Pay", "Daimler Financial Services AG"],
     "acquired": ["FlightCar", "Taxibeat"]
   },
   {
@@ -317,7 +322,7 @@
     "investedBy": ["Daimler Trucks North America"]
   },
   {
-    "name": "Innovation Lab",
+    "name": "Daimler Innovation Lab",
     "foundedBy": ["Daimler"]
   },
   {
@@ -423,7 +428,7 @@
     "name": "BMW",
     "investedIn": ["HERE"],
     "acquired": ["MINI"],
-    "founded": ["Startup Garage", "BMW i NEXT", "BMW i Ventures"],
+    "founded": ["BMW Startup Garage", "BMW i NEXT", "BMW i Ventures"],
     "partneredWith": ["High Mobility", "Baidu", "Intel", "Mobileye"]
   },
   {
@@ -533,7 +538,7 @@
     "partneredWith": ["Mobileye"]
   },
   {
-    "name": "Startup Garage",
+    "name": "BMW Startup Garage",
     "foundedBy": ["BMW"]
   },
   {
@@ -637,6 +642,6 @@
   {
     "name": "Elektrobit Automotive GmbH",
     "acquiredBy": ["Continental AG"],
-    "partneredWith": ["Audi Electronic Venture GmbH"]
+    "partneredWith": ["Audi Electronics Venture GmbH"]
   }
 ]
