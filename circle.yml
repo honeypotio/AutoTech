@@ -1,6 +1,0 @@
-dependencies:
-  pre:
-    - npm install
-machine:
-  node:
-    version: 6.9.5
