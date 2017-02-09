@@ -1,7 +1,7 @@
 ### Honeypot AutoTech Map
 =========================
 
-[![Build Status](https://travis-ci.org/honeypotio/AutoTech?branch=gh-pages)](https://travis-ci.org/honeypotio/AutoTech)
+[![Build Status](https://api.travis-ci.org/honeypotio/AutoTech.svg)](https://travis-ci.org/honeypotio/AutoTech)
 
 #### To Run this Locally:
 - Clone the repo `git clone https://github.com/honeypotio/AutoTech && cd AutoTech`
