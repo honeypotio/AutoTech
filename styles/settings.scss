@@ -1,13 +1,45 @@
-* {
-  box-sizing: border-box;
-}
+// Colors
+$black: #000000;
+$light-blue: #585858;
+$almost-black-color: #1f2228;
+$black: #000000;
+$white: #ffffff;
+$very-light-gray-color: #f2f2f2;
+$light-gray-1-color: #f5f8f7;
+$light-gray-2-color: #d6d6d6;
+$gray-10-color: #525252;
+$blue-color: #3685d6;
+$hover-blue: #256cb4;
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
+// Relationship colors
+$mentored-by: #0EE0B6;
+$founded-by: #0E826B;
+$invested-by: #F19B9E; 
+$acquired-by: #DF0F16;
+$partnered-with: #F6C823;
+$mentors: #FA9115;
+$founded: #8B73E5;
+$invested-in: #42BAF9;
+$acquired: #033C79;
+$faded: rgba(200,200,200, 0.4);
+$hover: $black;
+$inactive: $light-blue;
 
-.header__title {
-  text-align: center;
-}
+// Font sizes
+$fs-0: 12px;
+$fs-1: 14px;
+$fs-2: 16px;
+$fs-3: 18px;
+$fs-4: 22px;
+$fs-5: 36px;
+$fs-6: 24px;
+
+// Font weights
+$fw-lighter: 100;
+$fw-light: 200;
+$fw-normal: 400;
+$fw-2: 500;
+$fw-bold: bold;
+
+// Breakpoints
+$non-desktop: '(max-width: 980px)';

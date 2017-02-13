@@ -19,42 +19,42 @@
   }
   
   &--mentoredBy {
-    stroke: #d62728;
+    stroke: $mentored-by;
   }
 
   &--mentors {
-    stroke: #2ca02c;
+    stroke: $mentors;
   }
 
   &--investedIn {
-    stroke: #efa53b;
+    stroke: $invested-in;
   }
 
   &--investedBy {
-    stroke: #65c2d1;
+    stroke: $invested-by;
   }
 
   &--acquired {
-    stroke: #ac6f32;
+    stroke: $acquired;
   }
 
   &--acquiredBy {
-    stroke: #315423;
+    stroke: $acquired-by;
   }
 
   &--founded {
-    stroke: #e8c5f4;
+    stroke: $founded;
   }
 
   &--foundedBy {
-    stroke: #a36399;
+    stroke: $founded-by;
   }
 
   &--partneredWith {
-    stroke: #00f;
+    stroke: $partnered-with;
   }
 
   &--faded {
-    stroke: rgba(200,200,200, 0.4);
+    stroke: $faded;
   }
 }

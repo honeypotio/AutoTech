@@ -1,8 +1,8 @@
 .node {
-  font-size: 11px;
+  font-size: $fs-0;
   font-weight: 300;
-  fill: #585858;
-  transition: all 0.2s ease-in-out;
+  fill: $inactive;
+  transition: all 0.1s ease-in-out;
 
   &--faded {
     fill-opacity: 0.5;
@@ -19,53 +19,53 @@
   &--founded,
   &--foundedBy {
     font-weight: 700;
-    font-size: 13px;
+    font-size: $fs-1;
     cursor: pointer;
     fill-opacity: 1;
   }
 
   &--root {
-    font-size: 13px;
+    font-size: $fs-1;
     font-weight: bold;
   }
 
   &:hover {
-    fill: #000;
+    fill: $hover;
   }
 
   &--mentors {
-    fill: #2ca02c;
+    fill: $mentors;
   }
 
   &--mentoredBy {
-    fill: #d62728;
+    fill: $mentored-by;
   }
 
   &--investedIn {
-    fill: #efa53b;
+    fill: $invested-in;
   }
 
   &--investedBy {
-    fill: #65c2d1;
+    fill: $invested-by;
   }
 
   &--acquired {
-    fill: #ac6f32;
+    fill: $acquired;
   }
 
   &--acquiredBy {
-    fill: #315423;
+    fill: $acquired-by;
   }
 
   &--founded {
-    fill: #e8c5f4;
+    fill: $founded;
   }
 
   &--foundedBy {
-    fill: #a36399;
+    fill: $founded-by;
   }
 
   &--partneredWith {
-    fill: #00f;
+    fill: $partnered-with;
   }
 }
