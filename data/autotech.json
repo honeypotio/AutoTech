@@ -448,8 +448,12 @@
     "name": "BMW i Ventures",
     "foundedBy": ["BMW"],
     "founded": ["DriveNow", "ChargeNow", "ReachNow", "ParkNow", "BMW i Ventures Incubator"],
-    "investedIn": ["MobileROI", "Moovit", "Chargepoint", "Chargemaster", "JustPark", "STRATIM", "MyCityWay", "Scoop", "Rever Moto", "Zendrive", "Life360", "Carbon3D"],
+    "investedIn": ["MobileROI", "Moovit", "Chargepoint", "Chargemaster", "JustPark", "STRATIM", "MyCityWay", "Scoop", "Rever Moto", "Zendrive", "Life360", "Carbon", "Desktop Metal"],
     "partneredWith": ["RideCell"]
+  },
+  {
+    "name": "Desktop Metal",
+    "investedBy": ["BMW i Ventures"]
   },
   {
     "name": "BMW i Ventures Incubator",
@@ -474,7 +478,7 @@
     "partneredWith": ["RideCell"]
   },
   {
-    "name": "Carbon3D",
+    "name": "Carbon",
     "investedBy": ["BMW i Ventures"]
   },
   {
