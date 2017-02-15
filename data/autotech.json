@@ -1,7 +1,7 @@
 [
   {
     "name": "Volkswagen Group",
-    "founded": ["VW Innovation Fund", "Volkswagen Digital Lab", "Volkswagen Data Lab", " Volkswagen Mobility Lab", "Volkswagen Electronic Research Lab", "MOIA", "CyMotive Technologies"],
+    "founded": ["VW Innovation Fund", "Volkswagen Digital Lab", "Volkswagen Data Lab", "Volkswagen Mobility Lab", "Volkswagen Electronic Research Lab", "MOIA", "CyMotive Technologies"],
     "mentors": ["Anacode", "DocRAID", "Edisonweb", "Liftago", "Re2You", "Just Charge", "Plugsurfing", "gigaaa"],
     "investedIn": ["Gett", "QuantumScape", "Navistar"],
     "acquired": ["SEAT", "ŠKODA", "Bentley", "Bugatti", "Scania", "MAN", "Audi", "Porsche"],
@@ -599,19 +599,19 @@
   },
   {
     "name": "CelLink",
-    "foundedBy": ["Robert Bosch Venture Capital"]
+    "investedBy": ["Robert Bosch Venture Capital"]
   },
   {
     "name": "Chronocam",
-    "foundedBy": ["Robert Bosch Venture Capital"]
+    "investedBy": ["Robert Bosch Venture Capital"]
   },
   {
     "name": "Aethon",
-    "foundedBy": ["Robert Bosch Venture Capital"]
+    "investedBy": ["Robert Bosch Venture Capital"]
   },
   {
     "name": "AImotive",
-    "foundedBy": ["Robert Bosch Venture Capital"]
+    "investedBy": ["Robert Bosch Venture Capital"]
   },
   {
     "name": "Robert Bosch Start-up",
@@ -633,7 +633,7 @@
   },
   {
     "name": "Continental Automotive Systems",
-    "acquiredBy": ["Continental"]
+    "foundedBy": ["Continental"]
   },
   {
     "name": "ContiTech",
