@@ -35,6 +35,8 @@ var mappedRelationships = {};
     return d.x < 180 ? "start" : "end";
   }).text(function (d) {
     return d.name;
+  }).classed("node--bolded", function (d) {
+    return _settings.boldedCompanies.includes(d.name);
   }).on("mouseover", hoverAction).on("mouseout", removeHoverAction);
 });
 
@@ -125,9 +127,9 @@ function packageImports(nodes, companies) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-                      value: true
+  value: true
 });
-exports.svg = exports.line = exports.bundle = exports.cluster = exports.innerRadius = exports.radius = exports.diameter = undefined;
+exports.boldedCompanies = exports.svg = exports.line = exports.bundle = exports.cluster = exports.innerRadius = exports.radius = exports.diameter = undefined;
 
 var _d = require("d3");
 
@@ -141,18 +143,20 @@ var innerRadius = exports.innerRadius = radius - 120;
 var svgWidth = document.body.clientWidth > diameter + 280 ? document.body.clientWidth : diameter + 280;
 
 var cluster = exports.cluster = d3.layout.cluster().size([360, innerRadius]).value(function (d) {
-                      return d.size;
+  return d.size;
 });
 
 var bundle = exports.bundle = d3.layout.bundle();
 
 var line = exports.line = d3.svg.line.radial().interpolate("bundle").tension(.85).radius(function (d) {
-                      return d.y;
+  return d.y;
 }).angle(function (d) {
-                      return d.x / 180 * Math.PI;
+  return d.x / 180 * Math.PI;
 });
 
 var svg = exports.svg = d3.select(".autotech-wheel").append("svg").attr("width", svgWidth).attr("height", diameter + 200).append("g").attr("transform", "translate(" + (svgWidth / 2 + 100) + "," + (radius + 100) + ")");
+
+var boldedCompanies = exports.boldedCompanies = ["Volkswagen Group", "Daimler", "BMW", "Schaeffler", "Robert Bosch", "Sixt"];
 
 
 },{"d3":"d3"}]},{},[1]);

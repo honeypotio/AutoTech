@@ -8,6 +8,12 @@
     fill-opacity: 0.5;
   }
 
+  &--bolded {
+    font-weight: $fw-bold;
+    font-size: $fs-1;
+    fill: $almost-black-color;
+  }
+
   &:hover,
   &--partneredWith,
   &--mentors,
@@ -18,7 +24,7 @@
   &--investedBy,
   &--founded,
   &--foundedBy {
-    font-weight: 700;
+    font-weight: $fw-bold;
     font-size: $fs-1;
     cursor: pointer;
     fill-opacity: 1;

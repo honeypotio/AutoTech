@@ -1,11 +1,16 @@
 .sidebar {
   position: absolute;
   width: 280px;
-  padding: 20px 10px 0 20px;
+  padding: 10px 10px 0 20px;
   background-color: $very-light-gray-color;
 
   @media #{$non-desktop} {
     width: 200px
+  }
+
+  &__logo {
+    margin-bottom: 20px;
+    margin-right: 60px;
   }
 
   &__title {
@@ -56,5 +61,12 @@
     color: $gray-10-color;
     font-size: $fs-2;
     font-weight: $fw-bold;
+  }
+
+  &__disclaimer {
+    margin: 20px 0;
+    color: $light-gray-3-color;
+    font-size: $fs-7;
+    font-weight: $fw-light;
   }
 }
