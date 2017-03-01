@@ -22,3 +22,12 @@ export const svg = d3.select(".autotech-wheel").append("svg")
                     .attr("height", (diameter + 200))
                     .append("g")
                     .attr("transform", `translate(${((svgWidth / 2) + 100)},${(radius + 100)})`);
+
+export const boldedCompanies = [
+  "Volkswagen Group",
+  "Daimler",
+  "BMW",
+  "Schaeffler",
+  "Robert Bosch",
+  "Sixt"
+];

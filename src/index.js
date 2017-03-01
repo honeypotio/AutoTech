@@ -9,7 +9,8 @@ import {
   svg,
   cluster,
   bundle,
-  line
+  line,
+  boldedCompanies
 } from './settings';
 
 let SVGLinks = svg.append("g").selectAll(".link");
@@ -17,7 +18,7 @@ let SVGNodes = svg.append("g").selectAll(".node");
 let mappedRelationships = {};
 
 // Get Data
-getJSON("data/autotech.json", function(error, companies) {
+getJSON("data/autotech.json", (error, companies) => {
   if (error) {
     throw error
   };
@@ -47,17 +48,22 @@ getJSON("data/autotech.json", function(error, companies) {
           .attr("transform", (d) => {
             return `rotate(${ (d.x - 90) }), translate(${ (d.y + 2) },0)${ d.x < 180 ? "" : "rotate(180)" }`;
           })
-          .style("text-anchor", function(d) {
+          .style("text-anchor", (d) => {
             return d.x < 180 ? "start" : "end";
           })
-          .text(function(d) {return d.name; })
+          .text(d => d.name)
+          .classed("node--bolded", (d) => {
+            return boldedCompanies.includes(d.name);
+          })
           .on("mouseover", hoverAction)
           .on("mouseout", removeHoverAction);
 });
 
 
 function hoverAction(d) {
-  SVGNodes.each(function(n) { n.target = n.source = false; })
+  SVGNodes.each((n) => {
+    n.target = n.source = false;
+  })
 
   const relationships = ["mentoredBy", "foundedBy", "investedBy", "acquiredBy", "partneredWith", "mentors", "founded", "investedIn", "acquired"];
 
@@ -65,13 +71,13 @@ function hoverAction(d) {
     SVGNodes.classed("node--faded", (node) => {
       return !(mappedRelationships[d.name][rel] && mappedRelationships[d.name][rel].includes(node.name));
     });
-    SVGLinks.classed(`link--${rel}`, function(path) {
+    SVGLinks.classed(`link--${rel}`, (path) => {
       if (path.target !== d && path.source !== d) {
         return false;
       }
       return (mappedRelationships[d.name][rel] && (mappedRelationships[d.name][rel].includes(path.source.name) || mappedRelationships[d.name][rel].includes(path.target.name)));
     });
-    SVGNodes.classed(`node--${rel}`, function(n) {
+    SVGNodes.classed(`node--${rel}`, (n) => {
       return (mappedRelationships[d.name][rel] && mappedRelationships[d.name][rel].includes(n.name));
     });
   });
@@ -110,7 +116,7 @@ function packageImports(nodes, companies) {
   let map = {};
   let links = [];
   // Compute a map from name to node.
-  nodes.forEach(function(d) {
+  nodes.forEach((d) => {
     map[d.name] = d;
   });
 
