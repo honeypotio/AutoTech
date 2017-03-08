@@ -2,13 +2,13 @@ const assert = require('assert');
 const companies = require('../data/autotech.json');
 
 describe('#Data Purity', () => {
-  it('No duplicate data', function() {
+  it('should have no duplicate data', () => {
     let companyNames = companies.map(company => company.name);
     let uniqueCompanyNames = [...new Set(companyNames)];
     assert.equal(companyNames.length, uniqueCompanyNames.length);
   });
 
-  it('No missing company data', function() {
+  it('should have no missing company data', () => {
     let companyNames = companies.map(company => company.name);
     let relationships = ["mentoredBy", "foundedBy", "investedBy", "acquiredBy", "partneredWith", "mentors", "founded", "investedIn", "acquired"];
     let linkedCompanies = companies.reduce((nameList, company) => {
@@ -27,7 +27,7 @@ describe('#Data Purity', () => {
     assert.equal(companyNames.length, linkedCompanies.length);
   });
 
-  it('All relationships are two way', function() {
+  it('should have two way relationships', () => {
     const mapping = {
       "mentoredBy": "mentors",
       "foundedBy": "founded",
@@ -40,13 +40,15 @@ describe('#Data Purity', () => {
       "acquired": "acquiredBy"
     };
 
+    let relationships = ["mentoredBy", "foundedBy", "investedBy", "acquiredBy", "partneredWith", "mentors", "founded", "investedIn", "acquired"];
+
     const companiesHash = companies.reduce((acc, curr) => {
       acc[curr.name] = curr;
       return acc;
     }, {});
 
     companies.forEach(company => {
-      let relationshipKeys = Object.keys(company).filter(key => key !== "name");
+      let relationshipKeys = Object.keys(company).filter(key => relationships.includes(key));
 
       relationshipKeys.forEach(relationship => {
         company[relationship].forEach(relatedCompany => {
@@ -59,5 +61,14 @@ describe('#Data Purity', () => {
         })
       });
     });
+  });
+
+  it('should have industry data for every company', () => {
+    const totalCompanies = companies.length;
+    let totalCompaniesWithIndustry = companies.filter(company => company.industry).length;
+
+    assert.equal(totalCompanies, totalCompaniesWithIndustry, `
+      These companies are missing industry data: ${ companies.filter(company => !company.industry).map(company => company.name) }
+    `);
   });
 });

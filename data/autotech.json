@@ -10,7 +10,7 @@
   },
   {
     "name": "Electrify America",
-    "foundedBy": "Volkswagen Group",
+    "foundedBy": ["Volkswagen Group"],
     "industry": "Electric Vehicles & Connected Cars"
   },
   {
