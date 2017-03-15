@@ -555,6 +555,7 @@
     "name": "Intel",
     "investedIn": ["HERE"],
     "partneredWith": ["BMW"],
+    "acquired": ["Mobileye"],
     "industry": "Computer Software & Computer Vision"
   },
   {
@@ -685,6 +686,7 @@
   {
     "name": "Mobileye",
     "partneredWith": ["BMW", "Delphi"],
+    "acquiredBy": ["Intel"],
     "industry": "Computer Software & Computer Vision"
   },
   {
