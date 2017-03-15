@@ -686,7 +686,7 @@
   {
     "name": "Mobileye",
     "partneredWith": ["BMW", "Delphi"],
-    "acquiredBy": "Intel",
+    "acquiredBy": ["Intel"],
     "industry": "Computer Software & Computer Vision"
   },
   {
