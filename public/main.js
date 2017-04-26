@@ -1,9 +1,50 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _settings = require('./settings');
+
+var _d = require('d3');
+
+var drawDonut = function drawDonut(el) {
+  var wrapper = el.append('g');
+
+  var arc = _d.svg.arc().outerRadius(_settings.innerRadius + 200).innerRadius(_settings.innerRadius);
+
+  var pie = _d.layout.pie();
+
+  var g = wrapper.selectAll('g').data(pie([1, 2, 3, 5])).enter().append('g');
+
+  g.append("path").attr("d", arc).style('fill', function () {
+    return 'rgba(' + Math.floor(Math.random() * 200) + ',' + Math.floor(Math.random() * 200) + ',' + Math.floor(Math.random() * 200) + ',0.4)';
+  });
+  g.append('text').attr("transform", function (d) {
+    return 'translate(' + arc.centroid(d) + ')';
+  }).attr("dy", ".35em").text(function (d) {
+    return "Hello";
+  });;
+};
+
+exports.default = drawDonut;
+
+
+},{"./settings":3,"d3":"d3"}],2:[function(require,module,exports){
+'use strict';
+
 var _d = require('d3');
 
 var _settings = require('./settings');
+
+var _donut = require('./donut');
+
+var _donut2 = _interopRequireDefault(_donut);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _donut2.default)(_settings.svg);
 
 var SVGLinks = _settings.svg.append("g").selectAll(".link");
 var SVGNodes = _settings.svg.append("g").selectAll(".node");
@@ -123,7 +164,7 @@ function packageImports(nodes, companies) {
 }
 
 
-},{"./settings":2,"d3":"d3"}],2:[function(require,module,exports){
+},{"./donut":1,"./settings":3,"d3":"d3"}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -159,4 +200,4 @@ var svg = exports.svg = d3.select(".autotech-wheel").append("svg").attr("width",
 var boldedCompanies = exports.boldedCompanies = ["Volkswagen Group", "Daimler", "BMW", "Schaeffler", "Robert Bosch", "Sixt"];
 
 
-},{"d3":"d3"}]},{},[1]);
+},{"d3":"d3"}]},{},[2]);

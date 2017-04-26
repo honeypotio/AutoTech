@@ -13,6 +13,10 @@ import {
   boldedCompanies
 } from './settings';
 
+import drawDonut from './donut';
+
+drawDonut(svg)
+
 let SVGLinks = svg.append("g").selectAll(".link");
 let SVGNodes = svg.append("g").selectAll(".node");
 let mappedRelationships = {};
