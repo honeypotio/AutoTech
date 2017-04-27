@@ -1,7 +1,8 @@
 import {
   diameter,
   innerRadius,
-  radius
+  radius,
+  industryIcons
 } from './settings';
 
 import {
@@ -52,8 +53,9 @@ const drawDonut = function(el, data) {
               h = Math.sqrt(x*x + y*y);
           return (y/h * (innerRadius + 180));
     })
-    .attr("dy", ".2em")
-    .text(d => d.data.industry);
+    .text(d => {
+      return industryIcons[d.data.industry];
+    });
 };
 
 export default drawDonut;

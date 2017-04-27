@@ -39,8 +39,8 @@ var drawDonut = function drawDonut(el, data) {
     // pythagorean theorem for hypotenuse
     h = Math.sqrt(x * x + y * y);
     return y / h * (_settings.innerRadius + 180);
-  }).attr("dy", ".2em").text(function (d) {
-    return d.data.industry;
+  }).text(function (d) {
+    return _settings.industryIcons[d.data.industry];
   });
 };
 
@@ -81,7 +81,6 @@ var mappedRelationships = {};
   var industries = [];
   var industriesCount = companies.reduce((0, _utils.aggregateIndustries)(industries), []);
   industriesCount.sort((0, _utils.sortAsc)('industry'));
-  console.log(industries);
 
   (0, _donut2.default)(_settings.svg, industriesCount);
 
@@ -197,7 +196,7 @@ function packageImports(nodes, companies) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.boldedCompanies = exports.svg = exports.line = exports.bundle = exports.cluster = exports.innerRadius = exports.radius = exports.diameter = undefined;
+exports.industryIcons = exports.boldedCompanies = exports.svg = exports.line = exports.bundle = exports.cluster = exports.innerRadius = exports.radius = exports.diameter = undefined;
 
 var _d = require("d3");
 
@@ -210,7 +209,7 @@ var radius = exports.radius = diameter / 2;
 var innerRadius = exports.innerRadius = radius - 120;
 var svgWidth = document.body.clientWidth > diameter + 280 ? document.body.clientWidth : diameter + 280;
 
-var cluster = exports.cluster = d3.layout.cluster().size([360, innerRadius]).value(function (d) {
+var cluster = exports.cluster = d3.layout.cluster().size([radius, innerRadius]).value(function (d) {
   return d.size;
 });
 
@@ -222,9 +221,21 @@ var line = exports.line = d3.svg.line.radial().interpolate("bundle").tension(.85
   return d.x / 180 * Math.PI;
 });
 
-var svg = exports.svg = d3.select(".autotech-wheel").append("svg").attr("width", svgWidth).attr("height", diameter + 200).append("g").attr("transform", "translate(" + (svgWidth / 2 + 100) + "," + (radius + 100) + ")");
+var svg = exports.svg = d3.select(".wheel").append("svg").attr("width", svgWidth).attr("height", diameter + 200).append("g").attr("transform", "translate(" + (svgWidth / 2 + 100) + "," + (radius + 100) + ")");
 
 var boldedCompanies = exports.boldedCompanies = ["Volkswagen Group", "Daimler", "BMW", "Schaeffler", "Robert Bosch", "Sixt"];
+
+var industryIcons = exports.industryIcons = {
+  "Automakers, Trucks & Buses": "\uF0D1",
+  "Electric Vehicles & Connected Cars": "\uF0E7",
+  "Computer Software & Computer Vision": "\uF109",
+  "Miscellaneous": "\uF29C",
+  "Mapping & Location Services": "\uF124",
+  "Car Hailing & Sharing": "\uF087",
+  "VCs, Accelerators & Incubators": "\uF0D6",
+  "Mobility": "\uF06E",
+  "Rentals & Marketplaces": "\uF291"
+};
 
 
 },{"d3":"d3"}],4:[function(require,module,exports){

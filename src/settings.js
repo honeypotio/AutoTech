@@ -6,7 +6,7 @@ export const innerRadius = radius - 120;
 const svgWidth = document.body.clientWidth > (diameter + 280) ? document.body.clientWidth : (diameter + 280);
 
 export const cluster = d3.layout.cluster()
-                        .size([360, innerRadius])
+                        .size([radius, innerRadius])
                         .value(d => d.size);
 
 export const bundle = d3.layout.bundle();
@@ -17,7 +17,8 @@ export const line = d3.svg.line.radial()
                       .radius(d => d.y)
                       .angle(d => (d.x / 180 * Math.PI));
 
-export const svg = d3.select(".autotech-wheel").append("svg")
+export const svg = d3.select(".wheel")
+                    .append("svg")
                     .attr("width", svgWidth)
                     .attr("height", (diameter + 200))
                     .append("g")
@@ -31,3 +32,15 @@ export const boldedCompanies = [
   "Robert Bosch",
   "Sixt"
 ];
+
+export const industryIcons = {
+  "Automakers, Trucks & Buses": '\uf0d1',
+  "Electric Vehicles & Connected Cars": '\uf0e7',
+  "Computer Software & Computer Vision": '\uf109',
+  "Miscellaneous": '\uf29c',
+  "Mapping & Location Services": '\uf124',
+  "Car Hailing & Sharing": '\uf087',
+  "VCs, Accelerators & Incubators": '\uf0d6',
+  "Mobility": '\uf06e',
+  "Rentals & Marketplaces": '\uf291'
+}

@@ -32,7 +32,6 @@ getJSON("data/autotech.json", (error, companies) => {
   const industries = [];
   const industriesCount = companies.reduce(aggregateIndustries(industries), []);
   industriesCount.sort(sortAsc('industry'));
-  console.log(industries)
 
   drawIndustriesDonut(svg, industriesCount);
 

@@ -1,7 +1,9 @@
 .industry {
 
   &__text {
-    font-size: $fs-0;
+    font-family: FontAwesome;
+    font-size: $fs-6;
+    font-weight: $fw-lighter;
     transform-origin: 50% 100%;
   }
 }
