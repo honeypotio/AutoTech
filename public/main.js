@@ -9,23 +9,39 @@ var _settings = require('./settings');
 
 var _d = require('d3');
 
-var drawDonut = function drawDonut(el) {
-  var wrapper = el.append('g');
+var drawDonut = function drawDonut(el, data) {
+  var wrapper = el.insert('g', ':first-child').attr('class', 'industry');
+  var colours = ['rgba(143, 232, 149, 0.08)', 'rgba(54, 133, 214, 0.08)', 'rgba(95, 1, 185, 0.08)'];
+  var arc = _d.svg.arc().outerRadius(_settings.innerRadius + 180).innerRadius(_settings.innerRadius);
 
-  var arc = _d.svg.arc().outerRadius(_settings.innerRadius + 200).innerRadius(_settings.innerRadius);
-
-  var pie = _d.layout.pie();
-
-  var g = wrapper.selectAll('g').data(pie([1, 2, 3, 5])).enter().append('g');
-
-  g.append("path").attr("d", arc).style('fill', function () {
-    return 'rgba(' + Math.floor(Math.random() * 200) + ',' + Math.floor(Math.random() * 200) + ',' + Math.floor(Math.random() * 200) + ',0.4)';
+  var pie = _d.layout.pie().sort(null).value(function (d) {
+    return d.count;
   });
-  g.append('text').attr("transform", function (d) {
-    return 'translate(' + arc.centroid(d) + ')';
-  }).attr("dy", ".35em").text(function (d) {
-    return "Hello";
-  });;
+
+  var g = wrapper.selectAll('g').data(pie(data)).enter().append('g').attr('class', 'industry__section');
+
+  g.append("path").attr("d", arc).style('fill', function (d, i) {
+    return colours[i % colours.length];
+  });
+  g.append('text').attr('class', 'industry__text').attr("x", function (d) {
+    var c = arc.centroid(d),
+        x = c[0],
+        y = c[1],
+
+    // pythagorean theorem for hypotenuse
+    h = Math.sqrt(x * x + y * y);
+    return x / h * (_settings.innerRadius + 180);
+  }).attr("y", function (d) {
+    var c = arc.centroid(d),
+        x = c[0],
+        y = c[1],
+
+    // pythagorean theorem for hypotenuse
+    h = Math.sqrt(x * x + y * y);
+    return y / h * (_settings.innerRadius + 180);
+  }).attr("dy", ".2em").text(function (d) {
+    return d.data.industry;
+  });
 };
 
 exports.default = drawDonut;
@@ -38,13 +54,13 @@ var _d = require('d3');
 
 var _settings = require('./settings');
 
+var _utils = require('./utils');
+
 var _donut = require('./donut');
 
 var _donut2 = _interopRequireDefault(_donut);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-(0, _donut2.default)(_settings.svg);
 
 var SVGLinks = _settings.svg.append("g").selectAll(".link");
 var SVGNodes = _settings.svg.append("g").selectAll(".node");
@@ -61,6 +77,17 @@ var mappedRelationships = {};
     return acc;
   }, mappedRelationships);
 
+  // get industry data
+  var industries = [];
+  var industriesCount = companies.reduce((0, _utils.aggregateIndustries)(industries), []);
+  industriesCount.sort((0, _utils.sortAsc)('industry'));
+  console.log(industries);
+
+  (0, _donut2.default)(_settings.svg, industriesCount);
+
+  // First sort the company list before doing anything
+  companies.sort((0, _utils.sortAsc)('industry'));
+
   var hier = packageHierarchy(companies);
   var nodes = _settings.cluster.nodes(hier);
   var links = packageImports(nodes, companies);
@@ -70,7 +97,7 @@ var mappedRelationships = {};
     d.target = d[d.length - 1];
   }).attr("class", "link").attr("d", _settings.line);
 
-  SVGNodes = SVGNodes.data(nodes).enter().append("text").attr("class", "node").attr("dy", ".31em").attr("transform", function (d) {
+  SVGNodes = SVGNodes.data(nodes).enter().append("text").attr("class", "node").attr("dy", ".1em").attr('dx', '.2em').attr("transform", function (d) {
     return 'rotate(' + (d.x - 90) + '), translate(' + (d.y + 2) + ',0)' + (d.x < 180 ? "" : "rotate(180)");
   }).style("text-anchor", function (d) {
     return d.x < 180 ? "start" : "end";
@@ -164,7 +191,7 @@ function packageImports(nodes, companies) {
 }
 
 
-},{"./donut":1,"./settings":3,"d3":"d3"}],3:[function(require,module,exports){
+},{"./donut":1,"./settings":3,"./utils":4,"d3":"d3"}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -200,4 +227,33 @@ var svg = exports.svg = d3.select(".autotech-wheel").append("svg").attr("width",
 var boldedCompanies = exports.boldedCompanies = ["Volkswagen Group", "Daimler", "BMW", "Schaeffler", "Robert Bosch", "Sixt"];
 
 
-},{"d3":"d3"}]},{},[2]);
+},{"d3":"d3"}],4:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var sortAsc = exports.sortAsc = function sortAsc(prop) {
+  return function (a, b) {
+    // https://github.com/d3/d3-3.x-api-reference/blob/master/Arrays.md#d3_ascending
+    return a[prop] < b[prop] ? -1 : a[prop] > b[prop] ? 1 : a[prop] >= b[prop] ? 0 : NaN;
+  };
+};
+
+var aggregateIndustries = exports.aggregateIndustries = function aggregateIndustries(industries) {
+  return function (acc, curr) {
+    if (industries.includes(curr.industry)) {
+      acc[industries.indexOf(curr.industry)].count++;
+    } else {
+      industries.push(curr.industry);
+      acc.push({
+        industry: curr.industry,
+        count: 1
+      });
+    }
+    return acc;
+  };
+};
+
+
+},{}]},{},[2]);
