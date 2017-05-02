@@ -11,7 +11,7 @@ var _d = require('d3');
 
 var drawDonut = function drawDonut(el, data) {
   var wrapper = el.insert('g', ':first-child').attr('class', 'industry');
-  var colours = ['rgba(143, 232, 149, 0.08)', 'rgba(54, 133, 214, 0.08)', 'rgba(95, 1, 185, 0.08)'];
+
   var arc = _d.svg.arc().outerRadius(_settings.innerRadius + 180).innerRadius(_settings.innerRadius);
 
   var pie = _d.layout.pie().sort(null).value(function (d) {
@@ -20,9 +20,8 @@ var drawDonut = function drawDonut(el, data) {
 
   var g = wrapper.selectAll('g').data(pie(data)).enter().append('g').attr('class', 'industry__section');
 
-  g.append("path").attr("d", arc).style('fill', function (d, i) {
-    return colours[i % colours.length];
-  });
+  g.append("path").attr("d", arc);
+
   g.append('text').attr('class', 'industry__text').attr("x", function (d) {
     var c = arc.centroid(d),
         x = c[0],
@@ -231,7 +230,7 @@ var industryIcons = exports.industryIcons = {
   "Computer Software & Computer Vision": "\uF109",
   "Miscellaneous": "\uF29C",
   "Mapping & Location Services": "\uF124",
-  "Car Hailing & Sharing": "\uF087",
+  "Car Hailing & Sharing": "\uF1B9",
   "VCs, Accelerators & Incubators": "\uF0D6",
   "Mobility": "\uF06E",
   "Rentals & Marketplaces": "\uF291"

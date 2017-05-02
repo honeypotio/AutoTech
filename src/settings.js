@@ -39,7 +39,7 @@ export const industryIcons = {
   "Computer Software & Computer Vision": '\uf109',
   "Miscellaneous": '\uf29c',
   "Mapping & Location Services": '\uf124',
-  "Car Hailing & Sharing": '\uf087',
+  "Car Hailing & Sharing": '\uf1b9',
   "VCs, Accelerators & Incubators": '\uf0d6',
   "Mobility": '\uf06e',
   "Rentals & Marketplaces": '\uf291'

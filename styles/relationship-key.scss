@@ -6,10 +6,8 @@
     line-height: 24px;
 
     &--industry {
-      color: $blue-color;
-
       &:nth-child(odd) {
-        color: $acquired;
+        opacity: .75;
       }
     }
   }
