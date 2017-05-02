@@ -1,17 +1,17 @@
 import {
-  json as getJSON,
-  select
+  json as getJSON, select
 } from 'd3';
+
 import {
-  diameter,
-  radius,
-  innerRadius,
-  svg,
-  cluster,
-  bundle,
-  line,
-  boldedCompanies
+  diameter, radius, innerRadius, svg, cluster, bundle, line, boldedCompanies
 } from './settings';
+
+import {
+  sortAsc, aggregateIndustries
+} from './utils';
+
+import drawIndustriesDonut from './donut';
+
 
 let SVGLinks = svg.append("g").selectAll(".link");
 let SVGNodes = svg.append("g").selectAll(".node");
@@ -27,6 +27,16 @@ getJSON("data/autotech.json", (error, companies) => {
     acc[company.name] = company;
     return acc;
   }, mappedRelationships);
+
+  // get industry data
+  const industries = [];
+  const industriesCount = companies.reduce(aggregateIndustries(industries), []);
+  industriesCount.sort(sortAsc('industry'));
+
+  drawIndustriesDonut(svg, industriesCount);
+
+  // First sort the company list before doing anything
+  companies.sort(sortAsc('industry'));
 
   const hier = packageHierarchy(companies);
   const nodes = cluster.nodes(hier);
@@ -44,7 +54,8 @@ getJSON("data/autotech.json", (error, companies) => {
   SVGNodes = SVGNodes.data(nodes)
           .enter().append("text")
           .attr("class", "node")
-          .attr("dy", ".31em")
+          .attr("dy", ".1em")
+          .attr('dx', '.2em')
           .attr("transform", (d) => {
             return `rotate(${ (d.x - 90) }), translate(${ (d.y + 2) },0)${ d.x < 180 ? "" : "rotate(180)" }`;
           })

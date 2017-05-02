@@ -1,0 +1,27 @@
+.industry {
+
+  &__text {
+    font-family: FontAwesome;
+    font-size: $fs-6;
+    font-weight: $fw-lighter;
+    transform-origin: 50% 100%;
+  }
+
+  &__section {
+    path {
+      fill: $industry-1-color;
+    }
+
+    &:nth-of-type(3n+1) {
+      path {
+        fill: $industry-2-color;
+      }
+    }
+
+    &:nth-of-type(3n+2) {
+      path {
+        fill: $industry-3-color;
+      }
+    }
+  }
+}

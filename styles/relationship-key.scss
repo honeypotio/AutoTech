@@ -4,6 +4,12 @@
 
   &__item {
     line-height: 24px;
+
+    &--industry {
+      &:nth-child(odd) {
+        opacity: .75;
+      }
+    }
   }
 
   &__code {
@@ -50,5 +56,10 @@
     &--partnered-with {
       background-color: $partnered-with;
     }
+  }
+
+  &__industry {
+    margin-right: 10px;
+    color: $gray-10-color;
   }
 }

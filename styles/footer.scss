@@ -2,11 +2,9 @@
   position: relative;
   clear: both;
   background-color: $almost-black-color;
-  margin-top: 270px;
   padding: 40px 80px;
 
   @media #{$non-desktop} {
-    margin-top: 520px;
     padding: 20px;
   }
 
