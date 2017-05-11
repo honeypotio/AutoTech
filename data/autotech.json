@@ -1,7 +1,7 @@
 [
   {
     "name": "Volkswagen Group",
-    "founded": ["VW Innovation Fund", "Volkswagen Digital: Lab", "Volkswagen Data: Lab", "Volkswagen Mobility: Lab", "Volkswagen Electronic Research Lab", "MOIA", "CyMotive Technologies", "Electrify America"],
+    "founded": ["VW Innovation Fund", "Volkswagen Digital: Lab", "Volkswagen Data: Lab", "Volkswagen Mobility: Lab", "VW Electronic Research Lab", "MOIA", "CyMotive Technologies", "Electrify America"],
     "mentors": ["Anacode", "DocRAID", "Edisonweb", "Liftago", "Re2You", "Just Charge", "Plugsurfing", "gigaaa"],
     "investedIn": ["Gett", "QuantumScape", "Navistar"],
     "acquired": ["SEAT", "ŠKODA", "Bentley", "Bugatti", "Scania", "MAN", "Audi", "Porsche"],
@@ -79,7 +79,7 @@
     "industry": "Mobility"
   },
   {
-    "name": "Volkswagen Electronic Research Lab",
+    "name": "VW Electronic Research Lab",
     "foundedBy": ["Volkswagen Group"],
     "industry": "Electric Vehicles & Connected Cars"
   },

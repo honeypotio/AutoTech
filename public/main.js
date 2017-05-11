@@ -29,7 +29,7 @@ var drawDonut = function drawDonut(el, data) {
 
     // pythagorean theorem for hypotenuse
     h = Math.sqrt(x * x + y * y);
-    return x / h * (_settings.innerRadius + 180);
+    return x / h * (_settings.innerRadius + 200);
   }).attr("y", function (d) {
     var c = arc.centroid(d),
         x = c[0],
@@ -37,7 +37,7 @@ var drawDonut = function drawDonut(el, data) {
 
     // pythagorean theorem for hypotenuse
     h = Math.sqrt(x * x + y * y);
-    return y / h * (_settings.innerRadius + 180);
+    return y / h * (_settings.innerRadius + 200);
   }).text(function (d) {
     return _settings.industryIcons[d.data.industry];
   });

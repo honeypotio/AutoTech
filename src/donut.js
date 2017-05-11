@@ -35,7 +35,7 @@ const drawDonut = function(el, data) {
               y = c[1],
               // pythagorean theorem for hypotenuse
               h = Math.sqrt(x*x + y*y);
-          return (x/h * (innerRadius + 180));
+          return (x/h * (innerRadius + 200));
     })
     .attr("y", d => {
       var c = arc.centroid(d),
@@ -43,7 +43,7 @@ const drawDonut = function(el, data) {
               y = c[1],
               // pythagorean theorem for hypotenuse
               h = Math.sqrt(x*x + y*y);
-          return (y/h * (innerRadius + 180));
+          return (y/h * (innerRadius + 200));
     })
     .text(d => {
       return industryIcons[d.data.industry];
