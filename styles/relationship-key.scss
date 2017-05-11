@@ -6,9 +6,7 @@
     line-height: 24px;
 
     &--industry {
-      &:nth-child(odd) {
-        opacity: .75;
-      }
+      font-size: $fs-1;
     }
   }
 
@@ -59,6 +57,7 @@
   }
 
   &__industry {
+    width: 10px;
     margin-right: 10px;
     color: $gray-10-color;
   }
